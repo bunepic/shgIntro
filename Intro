@@ -176,6 +176,11 @@ function loadStuff()
 
     _G.anim19 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(slamwithleganim)
 
+    barrageanim = Instance.new("Animation", game.Players.LocalPlayer.Character)
+    barrageanim.AnimationId = "rbxassetid://2763936707"
+
+    _G.anim20 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(barrageanim)
+
 end
 
 -- load animations when script executes
@@ -202,6 +207,10 @@ local hrp = chr.HumanoidRootPart
 mouse = plr:GetMouse()
 cam = workspace.CurrentCamera
 ---------
+local trail1 = chr.Stand["Stand Right Arm"].Trail
+local trail2 = chr.Stand["Stand Left Arm"].Trail
+local trail = game:GetService("ReplicatedStorage").Trail
+---------
 human.MaxHealth = math.huge
 wait(0.1)
 game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
@@ -220,6 +229,7 @@ local UpperCutCd1 = false
 local PunchLolCd = false
 local RMoveCd = false
 local loading = false
+local standmodecooler = false
 ---------------------------------
 local theme = Instance.new("Sound", game.Workspace)
 theme.SoundId = "rbxassetid://1265445941"
@@ -234,6 +244,7 @@ horror.SoundId = "rbxassetid://3062479005"
 function attackmodetrail()
 if death == true then return end
 if attackmode == true then
+if standmodecooler == true then return end
 	repeat
 		wait()
 		game:GetService("ReplicatedStorage").VampireDash:FireServer(BrickColor.new("Pastel Blue"))
@@ -248,6 +259,7 @@ end
 function switchmode()
 if attackmode == true then
 if death == true then return end
+if standmodecooler == true then return end
 	attackmode = false
 	game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 26
 	game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = 55
@@ -263,8 +275,26 @@ mouse.KeyDown:connect(function(key)
     if key == "x" then
     if loading == true then return end
     if death == true then return end
+    if standmodecooler == true then return end
         game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
         switchmode()
+    end
+end)
+---------------------------------
+function switchmodetwo()
+if standmodecooler == true then
+	standmodecooler = false
+else
+	standmodecooler = true
+end	
+end
+
+mouse.KeyDown:connect(function(key)
+    if key == "-" then
+    if loading == true then return end
+    if death == true then return end
+        game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
+        switchmodetwo()
     end
 end)
 ---------------------------------
@@ -314,10 +344,9 @@ end
 ---------------------------------
 mouse.KeyDown:connect(function(key)
     if key == "f" then
-    if active == true then return end
     if loading == true then return end
 	if attackmode == true then return end
-    if ecd1 == true then return end
+	if standmodecooler == true then return end
     if death == true then return end
         trans0()
         active = true
@@ -364,6 +393,7 @@ end)
 mouse.KeyDown:Connect(function(key)
     if key == '1' then
 	    if attackmode == true then return end
+	    if standmodecooler == true then return end
         if loading == true then return end
 	    if death == true then return end
 	    if donutactive == true then return end
@@ -445,7 +475,7 @@ _G.humanG = function()
                 print(hit.Parent.Name)
                 delay(.001, function() debounce = false end)
             game.ReplicatedStorage.Berserk:FireServer(hit.Parent.Humanoid)
-            game.ReplicatedStorage.Damage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 175, .4, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 300 + Vector3.new(0, 200, 0), "rbxassetid://241837157", .1, Color3.new(0, 255, 0), "rbxassetid://367499850", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 175, .1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 999 + Vector3.new(0, 999, 0), "rbxassetid://241837157", .1, Color3.new(0, 255, 0), "rbxassetid://367499850", 1, 1)
             yell:FireServer()
             doppioslam:FireServer()
             hitbox1:Destroy()
@@ -456,7 +486,7 @@ _G.humanG = function()
                 print(hit.Parent.Name .. " elif")
                 delay(.001, function() debounce = false end)
             game.ReplicatedStorage.Berserk:FireServer(hit.Parent.Humanoid)
-            game.ReplicatedStorage.Damage:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, 175, .4, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 300 + Vector3.new(0, 200, 0), "rbxassetid://241837157", .1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, 175, .1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 999 + Vector3.new(0, 999, 0), "rbxassetid://241837157", .1, Color3.new(0, 255, 0), "", 1, 1)
             yell:FireServer()
             doppioslam:FireServer()
             hitbox1:Destroy()
@@ -468,6 +498,7 @@ end
 mouse.KeyDown:Connect(function(key)
     if key == 'g' then
 	if active == true then return end
+	if standmodecooler == true then return end
 	if death == true then return end
     if loading == true then return end
 	if attackmode == true then return end
@@ -572,6 +603,7 @@ end
 mouse.KeyDown:Connect(function(key)
     if key == 't' then
 	if death == true then return end
+	if standmodecooler == true then return end
     if loading == true then return end
 	if active == true then return end
 	if attackmode == true then return end
@@ -653,6 +685,7 @@ end
 mouse.KeyDown:Connect(function(key)
     if key == 'e' then
 	if UpperCutCd2 == true then return end
+	if standmodecooler == true then return end
     if loading == true then return end
 	if active == true then return end
 	if attackmode == true then return end
@@ -773,6 +806,7 @@ mouse.KeyDown:Connect(function(key)
 	if active == true then return end
 	if death == true then return end
 	if attackmode == true then return end
+	if standmodecooler == true then return end
     if loading == true then return end
 	if RMoveCd == true then return end
         trans0()
@@ -855,6 +889,7 @@ mouse.KeyDown:Connect(function(key)
     if key == 'y' then
     if loading == true then return end
 	if active == true then return end
+	if standmodecooler == true then return end
 	if attackmode == true then return end
 	if death == true then return end
         trans0()
@@ -1777,6 +1812,7 @@ end
 mouse.KeyDown:Connect(function(key)
     if key == 'q' then
 	if death == true then return end
+	if standmodecooler == true then return end
     if loading == true then return end
 	if active == true then return end
 	if attackmode == true then return end
@@ -1800,9 +1836,10 @@ _G.legslam = function()
     for i,v in pairs(game.Workspace.Entities:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
             if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 35 then
-                game:GetService("ReplicatedStorage").Damage11:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.5, Vector3.new(0,100,0), 0, "", 1, 1)
                 game.ReplicatedStorage.Knock:FireServer(v.Humanoid)
-                game.ReplicatedStorage.DoppioPin:FireServer(v.Humanoid, 0, 1, Vector3.new(-0,0,0))
+                game.ReplicatedStorage.KQRGrab:FireServer(v.Humanoid)
+                mesplash:FireServer()
+                mesplash:FireServer()
             end
         end
     end
@@ -1827,9 +1864,7 @@ _G.bringall = function()
     for i,v in pairs(game.Workspace.Entities:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
             if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < math.huge then
-                game.ReplicatedStorage.DoppioPin:FireServer(v.Humanoid, 0, 1, Vector3.new(-0,0,0))
-                game.ReplicatedStorage.DoppioPin:FireServer(v.Humanoid, 0, 1, Vector3.new(-0,0,0))
-                game.ReplicatedStorage.DoppioPin:FireServer(v.Humanoid, 0, 1, Vector3.new(-0,0,0))
+                game.ReplicatedStorage.KQRGrab:FireServer(v.Humanoid)
             end
         end
     end
@@ -1923,6 +1958,328 @@ game.Lighting.GI.Changed:Connect(function()
         rtzevent:FireServer(false)
         end
     end
+end)
+-----------------------------------------------
+_G.barrageone = function()
+        
+    -- make hitbox part
+    local hitbox1 = Instance.new("Part", game.Players.LocalPlayer.Character)
+    hitbox1.CFrame = game.Players.LocalPlayer.Character.Stand["Stand Right Arm"].CFrame
+    hitbox1.Name = "hitbox1"
+    hitbox1.Transparency = 1
+    hitbox1.Anchored = false
+    hitbox1.CanCollide = false
+
+    -- make weld that connects to part and hitbox
+    local weld = Instance.new("WeldConstraint", hitbox1)
+    weld.Part0 = hitbox1
+    weld.Part1 = game.Players.LocalPlayer.Character.Stand["Stand Right Arm"]
+
+    hitbox1.Size = game.Players.LocalPlayer.Character.Stand["Stand Right Arm"].Size * 1.2
+    hitbox1.Massless = true
+    hitbox1.Color = Color3.new(0,0,0)
+    game.Debris:AddItem(hitbox1, 0.1) -- destroy hitbox after .3 seconds (with no code yielding)
+
+    --[[
+        local userdata_1 = game:GetService("Workspace").Entities["Menacing Dummy"].Humanoid;  target
+        local userdata_2 = CFrame.new(-6266.57568, 576.63147, -389.268402, 0.910382628, -0.322563976, 0.259144157, 0.282751679, 0.0277367681, -0.958792031, 0.30208388, 0.946141243, 0.116456524);  punch effect position
+        local number_1 = 50;  damage
+        local number_2 = 0.25;  velocity duration
+        local userdata_3 = Vector3.new(45.6050453, -0.000103456521, -20.4982872);  velocity
+        local string_1 = "rbxassetid://241837157";  punch effect
+        local number_3 = 0.075;  punch effect size
+        local userdata_4 = Color3.new(0, 255, 0);  color
+        local string_2 = "rbxassetid://260430079";  sound
+        local number_4 = 0.9;  playback speed
+        local number_5 = 1;  punch sound volume
+        local Target = game:GetService("ReplicatedStorage").Damage;
+        Target:FireServer(userdata_1, userdata_2, number_1, number_2, userdata_3, string_1, number_3, userdata_4, string_2, number_4, number_5);
+    ]]
+    
+    local debounce = false
+    
+    -- deal damage if arm hits a humanoid
+    local hitRegister = hitbox1.Touched:Connect(function(hit)
+        if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+                if debounce == false then
+                debounce = true
+                delay(.001, function() debounce = false end)
+            game:GetService("ReplicatedStorage").Damage2:FireServer(hit.Parent.Humanoid, hit.Parent.Torso.CFrame, 15, 0.1, Vector3.new(0, 0, 0), 0.5, "", 1, 1)
+            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(hit.Parent.Humanoid, hit.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.025, "", 1, 1)
+            hitbox1:Destroy()
+            end
+        elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+                if debounce == false then
+                debounce = true
+                delay(.001, function() debounce = false end)
+            game:GetService("ReplicatedStorage").Damage2:FireServer(hit.Parent.Humanoid, hit.Parent.Torso.CFrame, 15, 0.1, Vector3.new(0, 0, 0), 0.5, "", 1, 1)
+            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(hit.Parent.Humanoid, hit.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.025, "", 1, 1)
+            hitbox1:Destroy()
+            end
+        end
+    end)
+end
+
+_G.barragetwo = function()
+        
+    -- make hitbox part
+    local hitbox1 = Instance.new("Part", game.Players.LocalPlayer.Character)
+    hitbox1.CFrame = game.Players.LocalPlayer.Character.Stand["Stand Left Arm"].CFrame
+    hitbox1.Name = "hitbox1"
+    hitbox1.Transparency = 1
+    hitbox1.Anchored = false
+    hitbox1.CanCollide = false
+
+    -- make weld that connects to part and hitbox
+    local weld = Instance.new("WeldConstraint", hitbox1)
+    weld.Part0 = hitbox1
+    weld.Part1 = game.Players.LocalPlayer.Character.Stand["Stand Left Arm"]
+
+    hitbox1.Size = game.Players.LocalPlayer.Character.Stand["Stand Left Arm"].Size * 1.2
+    hitbox1.Massless = true
+    hitbox1.Color = Color3.new(0,0,0)
+    game.Debris:AddItem(hitbox1, 0.1) -- destroy hitbox after .3 seconds (with no code yielding)
+
+    --[[
+        local userdata_1 = game:GetService("Workspace").Entities["Menacing Dummy"].Humanoid;  target
+        local userdata_2 = CFrame.new(-6266.57568, 576.63147, -389.268402, 0.910382628, -0.322563976, 0.259144157, 0.282751679, 0.0277367681, -0.958792031, 0.30208388, 0.946141243, 0.116456524);  punch effect position
+        local number_1 = 50;  damage
+        local number_2 = 0.25;  velocity duration
+        local userdata_3 = Vector3.new(45.6050453, -0.000103456521, -20.4982872);  velocity
+        local string_1 = "rbxassetid://241837157";  punch effect
+        local number_3 = 0.075;  punch effect size
+        local userdata_4 = Color3.new(0, 255, 0);  color
+        local string_2 = "rbxassetid://260430079";  sound
+        local number_4 = 0.9;  playback speed
+        local number_5 = 1;  punch sound volume
+        local Target = game:GetService("ReplicatedStorage").Damage;
+        Target:FireServer(userdata_1, userdata_2, number_1, number_2, userdata_3, string_1, number_3, userdata_4, string_2, number_4, number_5);
+    ]]
+    
+    local debounce = false
+    
+    -- deal damage if arm hits a humanoid
+    local hitRegister = hitbox1.Touched:Connect(function(hit)
+        if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+                if debounce == false then
+                debounce = true
+                delay(.001, function() debounce = false end)
+            game:GetService("ReplicatedStorage").Damage2:FireServer(hit.Parent.Humanoid, hit.Parent.Torso.CFrame, 15, 0.1, Vector3.new(0, 0, 0), 0.5, "", 1, 1)
+            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(hit.Parent.Humanoid, hit.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.025, "", 1, 1)
+            hitbox1:Destroy()
+            end
+        elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+                if debounce == false then
+                debounce = true
+                delay(.001, function() debounce = false end)
+            game:GetService("ReplicatedStorage").Damage2:FireServer(hit.Parent.Humanoid, hit.Parent.Torso.CFrame, 15, 0.1, Vector3.new(0, 0, 0), 0.5, "", 1, 1)
+            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(hit.Parent.Humanoid, hit.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.025, "", 1, 1)
+            hitbox1:Destroy()
+            end
+        end
+    end)
+end
+-----------------------------------
+-----------------------------------
+-----------------------------------
+-----------------------------------
+function barrage()
+	if death == true then return end
+	if active == true then return end
+	active = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "e" then
+	      bep = false
+	    end
+	end)
+	_G.anim20:Play(0.1,1,999)
+	trans0()
+	trail:FireServer(trail1, true)
+	trail:FireServer(trail2, true)
+	repeat
+		_G.barrageone()
+		_G.barragetwo()
+		wait(0.0001)
+	until bep == false
+	trans1()
+	trail:FireServer(trail1, false)
+	trail:FireServer(trail2, false)
+	_G.anim20:Stop()
+	active = false
+end
+-----------------------------------------------------------------------------
+mouse.KeyDown:connect(function(key)
+	if key == "e" then
+    if loading == true then return end
+	if attackmode == true then return end
+	if standmodecooler == false then return end
+    if death == true then return end
+		barrage()
+	end
+end)
+-----------------------------------------------
+_G.healbarrageone = function()
+        
+    -- make hitbox part
+    local hitbox1 = Instance.new("Part", game.Players.LocalPlayer.Character)
+    hitbox1.CFrame = game.Players.LocalPlayer.Character.Stand["Stand Right Arm"].CFrame
+    hitbox1.Name = "hitbox1"
+    hitbox1.Transparency = 1
+    hitbox1.Anchored = false
+    hitbox1.CanCollide = false
+
+    -- make weld that connects to part and hitbox
+    local weld = Instance.new("WeldConstraint", hitbox1)
+    weld.Part0 = hitbox1
+    weld.Part1 = game.Players.LocalPlayer.Character.Stand["Stand Right Arm"]
+
+    hitbox1.Size = game.Players.LocalPlayer.Character.Stand["Stand Right Arm"].Size * 1.2
+    hitbox1.Massless = true
+    hitbox1.Color = Color3.new(0,0,0)
+    game.Debris:AddItem(hitbox1, 0.1) -- destroy hitbox after .3 seconds (with no code yielding)
+
+    --[[
+        local userdata_1 = game:GetService("Workspace").Entities["Menacing Dummy"].Humanoid;  target
+        local userdata_2 = CFrame.new(-6266.57568, 576.63147, -389.268402, 0.910382628, -0.322563976, 0.259144157, 0.282751679, 0.0277367681, -0.958792031, 0.30208388, 0.946141243, 0.116456524);  punch effect position
+        local number_1 = 50;  damage
+        local number_2 = 0.25;  velocity duration
+        local userdata_3 = Vector3.new(45.6050453, -0.000103456521, -20.4982872);  velocity
+        local string_1 = "rbxassetid://241837157";  punch effect
+        local number_3 = 0.075;  punch effect size
+        local userdata_4 = Color3.new(0, 255, 0);  color
+        local string_2 = "rbxassetid://260430079";  sound
+        local number_4 = 0.9;  playback speed
+        local number_5 = 1;  punch sound volume
+        local Target = game:GetService("ReplicatedStorage").Damage;
+        Target:FireServer(userdata_1, userdata_2, number_1, number_2, userdata_3, string_1, number_3, userdata_4, string_2, number_4, number_5);
+    ]]
+    
+    local debounce = false
+    
+    -- deal damage if arm hits a humanoid
+    local hitRegister = hitbox1.Touched:Connect(function(hit)
+        if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+                if debounce == false then
+                debounce = true
+                delay(.001, function() debounce = false end)
+            local healbarragecount = hit.Parent.Humanoid.MaxHealth/100
+            game.ReplicatedStorage.SamuraiDamage2:FireServer(hit.Parent.Humanoid,-healbarragecount)
+            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(hit.Parent.Humanoid, hit.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.035, "", 1, 1)
+            hitbox1:Destroy()
+            end
+        elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+                if debounce == false then
+                debounce = true
+                delay(.001, function() debounce = false end)
+            local healbarragecount = hit.Parent.Humanoid.MaxHealth/100
+            game.ReplicatedStorage.SamuraiDamage2:FireServer(hit.Parent.Humanoid,-healbarragecount)
+            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(hit.Parent.Humanoid, hit.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.035, "", 1, 1)
+            hitbox1:Destroy()
+            end
+        end
+    end)
+end
+
+_G.healbarragetwo = function()
+        
+    -- make hitbox part
+    local hitbox1 = Instance.new("Part", game.Players.LocalPlayer.Character)
+    hitbox1.CFrame = game.Players.LocalPlayer.Character.Stand["Stand Left Arm"].CFrame
+    hitbox1.Name = "hitbox1"
+    hitbox1.Transparency = 1
+    hitbox1.Anchored = false
+    hitbox1.CanCollide = false
+
+    -- make weld that connects to part and hitbox
+    local weld = Instance.new("WeldConstraint", hitbox1)
+    weld.Part0 = hitbox1
+    weld.Part1 = game.Players.LocalPlayer.Character.Stand["Stand Left Arm"]
+
+    hitbox1.Size = game.Players.LocalPlayer.Character.Stand["Stand Left Arm"].Size * 1.2
+    hitbox1.Massless = true
+    hitbox1.Color = Color3.new(0,0,0)
+    game.Debris:AddItem(hitbox1, 0.1) -- destroy hitbox after .3 seconds (with no code yielding)
+
+    --[[
+        local userdata_1 = game:GetService("Workspace").Entities["Menacing Dummy"].Humanoid;  target
+        local userdata_2 = CFrame.new(-6266.57568, 576.63147, -389.268402, 0.910382628, -0.322563976, 0.259144157, 0.282751679, 0.0277367681, -0.958792031, 0.30208388, 0.946141243, 0.116456524);  punch effect position
+        local number_1 = 50;  damage
+        local number_2 = 0.25;  velocity duration
+        local userdata_3 = Vector3.new(45.6050453, -0.000103456521, -20.4982872);  velocity
+        local string_1 = "rbxassetid://241837157";  punch effect
+        local number_3 = 0.075;  punch effect size
+        local userdata_4 = Color3.new(0, 255, 0);  color
+        local string_2 = "rbxassetid://260430079";  sound
+        local number_4 = 0.9;  playback speed
+        local number_5 = 1;  punch sound volume
+        local Target = game:GetService("ReplicatedStorage").Damage;
+        Target:FireServer(userdata_1, userdata_2, number_1, number_2, userdata_3, string_1, number_3, userdata_4, string_2, number_4, number_5);
+    ]]
+    
+    local debounce = false
+    
+    -- deal damage if arm hits a humanoid
+    local hitRegister = hitbox1.Touched:Connect(function(hit)
+        if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+                if debounce == false then
+                debounce = true
+                delay(.001, function() debounce = false end)
+            local healbarragecount = hit.Parent.Humanoid.MaxHealth/100
+            game.ReplicatedStorage.SamuraiDamage2:FireServer(hit.Parent.Humanoid,-healbarragecount)
+            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(hit.Parent.Humanoid, hit.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.035, "", 1, 1)
+            hitbox1:Destroy()
+            end
+        elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+                if debounce == false then
+                debounce = true
+                delay(.001, function() debounce = false end)
+            local healbarragecount = hit.Parent.Humanoid.MaxHealth/100
+            game.ReplicatedStorage.SamuraiDamage2:FireServer(hit.Parent.Humanoid,-healbarragecount)
+            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(hit.Parent.Humanoid, hit.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.035, "", 1, 1)
+            hitbox1:Destroy()
+            end
+        end
+    end)
+end
+-----------------------------------
+-----------------------------------
+-----------------------------------
+-----------------------------------
+function healbarrage()
+	if death == true then return end
+	if active == true then return end
+	active = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "q" then
+	      bep = false
+	    end
+	end)
+	_G.anim20:Play(0.1,1,999)
+	trans0()
+	trail:FireServer(trail1, true)
+	trail:FireServer(trail2, true)
+	repeat
+		_G.healbarrageone()
+		_G.healbarragetwo()
+		wait(0.00001)
+	until bep == false
+	trans1()
+	trail:FireServer(trail1, false)
+	trail:FireServer(trail2, false)
+	_G.anim20:Stop()
+	active = false
+end
+-----------------------------------------------------------------------------
+mouse.KeyDown:connect(function(key)
+	if key == "q" then
+    if loading == true then return end
+	if attackmode == true then return end
+	if standmodecooler == false then return end
+    if death == true then return end
+		healbarrage()
+	end
 end)
 -----------------------------------------------
 player.ChatColor.G.Value = 255
