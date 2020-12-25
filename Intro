@@ -2908,7 +2908,7 @@ _G.humanityDestroy = function()
     doppioslam:FireServer()
     for i,v in pairs(game.Workspace.Entities:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
-            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 500 then
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < math.huge then
             game.ReplicatedStorage.HamonSword:FireServer(v.Humanoid, 1, math.huge, Vector3.new(0,math.huge,0))
             game.ReplicatedStorage.SamuraiDamage2:FireServer(v.Humanoid, 1, math.huge, Vector3.new(0,math.huge,0))
             game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(v.Humanoid, v.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 1.5, "", 1, 1)
