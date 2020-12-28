@@ -3464,7 +3464,7 @@ _G.humanFmovehaha = function()
     local hitbox1 = Instance.new("Part", game.Players.LocalPlayer.Character)
     hitbox1.CFrame = game.Players.LocalPlayer.Character["Left Arm"].CFrame
     hitbox1.Name = "hitbox1"
-    hitbox1.Transparency = 0
+    hitbox1.Transparency = 1
     hitbox1.Anchored = false
     hitbox1.CanCollide = false
 
