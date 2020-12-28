@@ -3056,7 +3056,7 @@ rStorage.RTZClient.OnClientEvent:connect(function(gamer)
     if gamer ~= Player then
         local gmhum = gamer.Character.Humanoid
         Countering = false
-        Player.Character.HumanoidRootPart.CFrame = gamer.Character.HumanoidRootPart.CFrame  * CFrame.new(0, 6, 0)
+        Player.Character.HumanoidRootPart.CFrame = gamer.Character.HumanoidRootPart.CFrame  * CFrame.new(6, 0, 0)
         game.ReplicatedStorage.HamonSword:FireServer(gmhum, 1, math.huge, Vector3.new(0,math.huge,0))
         print(gamer)
     end
