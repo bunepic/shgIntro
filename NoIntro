@@ -231,6 +231,21 @@ function loadStuff()
 
     _G.anim30 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(humanRpunchanim)
 
+    beatgrabanim = Instance.new("Animation", game.Players.LocalPlayer.Character)
+    beatgrabanim.AnimationId = "rbxassetid://4643330927"
+
+    _G.anim31 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(beatgrabanim)
+
+    beatdownpose = Instance.new("Animation", game.Players.LocalPlayer.Character)
+    beatdownpose.AnimationId = "rbxassetid://3586350611"
+
+    _G.anim32 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(beatdownpose)
+
+    beatdownanim = Instance.new("Animation", game.Players.LocalPlayer.Character)
+    beatdownanim.AnimationId = "rbxassetid://3586249104"
+
+    _G.anim33 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(beatdownanim)
+
 end
 
 -- load animations when script executes
@@ -308,6 +323,24 @@ if specmodecooler == true then return end
 end
 end
 ---------------------------------
+local dmgtrail = false
+
+function damagetrail()
+if death == true then return end
+if attackmode == false then
+	dmgtrail = true
+	repeat
+		wait(0.1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Left Arm"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Right Leg"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Left Leg"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Torso"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Torso"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Head"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Head"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+	until attackmode == true or dmgtrail == false
+end
+end
+---------------------------------
 function switchmode()
 if attackmode == true then
 if death == true then return end
@@ -374,6 +407,16 @@ mouse.KeyDown:connect(function(key)
         switchmodethird()
     end
 end)
+---------------------------------
+repeat
+		wait(0.1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Left Arm"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Right Leg"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Left Leg"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Torso"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Torso"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+		game.ReplicatedStorage.Damage:FireServer(human, chr["Head"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Head"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", .1, Color3.new(0, 255, 0), "", 1, 1)
+until attackmode == true or dmgtrail == false
 ---------------------------------
 function trans0()
     game.ReplicatedStorage.Transparency:FireServer(game.Players.LocalPlayer.Character.Stand["Stand Right Arm"],0.5)
@@ -1510,7 +1553,7 @@ _G.grab = function()
             delay(.001, function() debounce = false end)
         grabbing = true
         game.ReplicatedStorage.Knock:FireServer(hit.Parent.Humanoid)
-        game.ReplicatedStorage.DoppioPin:FireServer(hit.Parent.Humanoid, 0, 1, Vector3.new(-0,0,0))
+        game.ReplicatedStorage.KQRGrab:FireServer(hit.Parent.Humanoid)
         hitbox1:Destroy()
     end
 elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
@@ -1519,8 +1562,8 @@ elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game
         print(hit.Parent.Name)
         delay(.001, function() debounce = false end)
         grabbing = true
-        game.ReplicatedStorage.Knock:FireServer(hit.Parent.Parent.Humanoid)
-        game.ReplicatedStorage.DoppioPin:FireServer(hit.Parent.Parent.Humanoid, 0, 1, Vector3.new(-0,0,0))
+        game.ReplicatedStorage.Knock:FireServer(hit.Parent.Humanoid)
+        game.ReplicatedStorage.KQRGrab:FireServer(hit.Parent.Humanoid)
     hitbox1:Destroy()
     end
 end
@@ -3046,8 +3089,20 @@ Mouse.KeyUp:Connect(function(Key)
     if death == true then return end
         if Move == false and Countering == false then
             Counter()
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://241837157", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Left Arm"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://241837157", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Leg"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://241837157", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Left Leg"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://241837157", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Torso"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Torso"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://241837157", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Head"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Head"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://241837157", 1, Color3.new(0, 255, 0), "", 1, 1)
         else
             Countering = false
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Left Arm"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Leg"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Left Leg"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Right Arm"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Torso"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Torso"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", 1, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Head"].CFrame, 0, 0, game.Players.LocalPlayer.Character["Head"].CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://3370684035", 1, Color3.new(0, 255, 0), "", 1, 1)
         end
     end
 end)
@@ -3056,7 +3111,18 @@ rStorage.RTZClient.OnClientEvent:connect(function(gamer)
     if gamer ~= Player then
         local gmhum = gamer.Character.Humanoid
         Countering = false
-        Player.Character.HumanoidRootPart.CFrame = gamer.Character.HumanoidRootPart.CFrame  * CFrame.new(6, 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(0,3,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(1,2,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(-1,2,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(0,1,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(0,0,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(2,2,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(-2,2,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(0,-1,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(0,4,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(0,2,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame * CFrame.new(0,-4,3), 0, 0, Vector3.new(0,0,0), "rbxassetid://241837157", 0, Color3.new(0,255,0), "rbxassetid://", 0, 0)
+        Player.Character.HumanoidRootPart.CFrame = gamer.Character.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
         game.ReplicatedStorage.HamonSword:FireServer(gmhum, 1, math.huge, Vector3.new(0,math.huge,0))
         print(gamer)
     end
@@ -3544,6 +3610,135 @@ mouse.KeyDown:connect(function(key)
 		wait(0.5)
 		active = false
 	end
+end)
+-----------------------------------------------
+local beatdown = false
+
+local beatdowntarget = nil
+
+_G.beatdowngrab = function()
+    local leftArm = game.Players.LocalPlayer.Character.Stand["Stand Left Arm"]
+
+    local hitbox1 = Instance.new("Part", game.Players.LocalPlayer.Character)
+    hitbox1.CFrame = leftArm.CFrame
+    hitbox1.Transparency = 1
+    hitbox1.Name = "hitbox1"
+    hitbox1.CanCollide = false
+    hitbox1.Anchored = false
+    hitbox1.Massless = true
+    hitbox1.Color = Color3.new(0,0,0)
+    hitbox1.Size = leftArm.Size * 1.5
+
+    local weld = Instance.new("WeldConstraint", hitbox1)
+    weld.Part0 = hitbox1
+    weld.Part1 = leftArm
+
+    game.Debris:AddItem(hitbox1, 0.3)
+
+    local debounce = false
+    
+    local hitRegister = hitbox1.Touched:Connect(function(hit)
+        if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+            if debounce == false then
+            debounce = true
+            print(hit.Parent.Name)
+            delay(.001, function() debounce = false end)
+        beatdown = true
+        beatdowntarget = hit.Parent
+        game.ReplicatedStorage.Knock:FireServer(hit.Parent.Humanoid)
+        game.ReplicatedStorage.KQRGrab:FireServer(hit.Parent.Humanoid)
+        hitbox1:Destroy()
+    end
+elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+    if debounce == false then
+        debounce = true
+        print(hit.Parent.Name)
+        delay(.001, function() debounce = false end)
+        beatdown = true
+        beatdowntarget = hit.Parent
+        game.ReplicatedStorage.Knock:FireServer(hit.Parent.Humanoid)
+        game.ReplicatedStorage.KQRGrab:FireServer(hit.Parent.Humanoid)
+    hitbox1:Destroy()
+    end
+end
+end)
+end
+-------------------------------------------
+local beatdowncountthing = 0
+
+_G.beatdown = function()
+    repeat
+        beatdowncountthing = beatdowncountthing + 1
+        game.ReplicatedStorage.Knock:FireServer(beatdowntarget.Humanoid)
+        game.ReplicatedStorage.KQRGrab:FireServer(beatdowntarget.Humanoid)
+        game.ReplicatedStorage.Berserk:FireServer(beatdowntarget.Humanoid)
+        game:GetService("ReplicatedStorage").Damage12Sans:FireServer(beatdowntarget.Humanoid, beatdowntarget.HumanoidRootPart.CFrame, 3, 0, Vector3.new(0, 0, 0), 0.055, "", 1, 1)
+        game:GetService("ReplicatedStorage").Damage2:FireServer(beatdowntarget.Humanoid, beatdowntarget.HumanoidRootPart.CFrame, 3, 0, Vector3.new(0, 0, 0), 0.055, "", 1, 1)
+        wait()
+    until beatdowncountthing == 500 or beatdowntarget.Humanoid.Health == 50 or beatdowntarget.Humanoid.Health < 50
+    beatdowncountthing = 0
+end
+-------------------------------------------
+-------------------------------------------
+mouse.KeyDown:Connect(function(key)
+    if key == 'j' then
+	if attackmode == true then return end
+	if standmodecooler == false then return end
+	if death == true then return end
+	if active == true then return end
+		trans0()
+		active = true
+        _G.anim31:Play(0.1,1,1.3)
+        wait(0.55)
+        _G.beatdowngrab()
+        wait()
+	if beatdown == true or beatdowntarget ~= nil then
+		human.WalkSpeed = 0
+		human.JumpPower = 0
+		_G.anim33:Play(0.1,1,999)
+		_G.anim32:Play()
+        _G.beatdown()
+		_G.anim33:Stop()
+		_G.anim32:Stop()
+        chr.HumanoidRootPart.CFrame = beatdowntarget.HumanoidRootPart.CFrame  * CFrame.new(6, 0, 0)
+        game:GetService("ReplicatedStorage").TwentyMeterSplash:FireServer()
+        wait(0.05)
+        chr.HumanoidRootPart.CFrame = beatdowntarget.HumanoidRootPart.CFrame  * CFrame.new(0, 0, -6)
+        game:GetService("ReplicatedStorage").TwentyMeterSplash:FireServer()
+        wait(0.05)
+        chr.HumanoidRootPart.CFrame = beatdowntarget.HumanoidRootPart.CFrame  * CFrame.new(-6, 0, 0)
+        game:GetService("ReplicatedStorage").TwentyMeterSplash:FireServer()
+        wait(0.05)
+        chr.HumanoidRootPart.CFrame = beatdowntarget.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
+        game:GetService("ReplicatedStorage").TwentyMeterSplash:FireServer()
+		trans1()
+		beatdowntarget = nil
+		human.WalkSpeed = 20
+		human.JumpPower = 50
+        wait(0.7)
+		active = false
+        beatdown = false
+		print(beatdown)
+	elseif beatdown == false then
+		human.WalkSpeed = 20
+		human.JumpPower = 50
+		_G.anim32:Stop()
+		trans1()
+		beatdowntarget = nil
+        wait(0.4)
+		active = false
+		print(beatdown)
+	elseif beatdowntarget == nil then
+		human.WalkSpeed = 20
+		human.JumpPower = 50
+		_G.anim32:Stop()
+		trans1()
+		beatdowntarget = nil
+        wait(0.4)
+		active = false
+		print(beatdown)
+    end 
+end
 end)
 -----------------------------------------------
 game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
