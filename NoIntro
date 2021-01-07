@@ -1,3 +1,6 @@
+game:GetService("ReplicatedStorage").Block:FireServer(true)
+game:GetService("ReplicatedStorage").SuperArmor:FireServer(true)
+
 --[[
 
 First mode moveset:
