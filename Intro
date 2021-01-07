@@ -3945,6 +3945,8 @@ loading = true
 human.WalkSpeed = 0
 human.JumpPower = 0
 game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
+wait()
+game.ReplicatedStorage.SamuraiDamage2:FireServer(human,math.huge)
 _G.anim11:Play(0.1,1,0.5)
 	repeat
 		wait()
