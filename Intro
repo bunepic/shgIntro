@@ -474,13 +474,55 @@ local tauntactive = false
 function taunt()
 	if tauntactive == true then return end
 	tauntactive = true
-	local randomquote = math.random(1, 2)
+	local randomquote = math.random(1, 23)
 	if randomquote == 1 then
-replicatedstorage.Taunt:FireServer(chr.Head, "rbxassetid://3651529648", 0,3.5, 0)
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://3651529648", 0,3.5, 0)
 	elseif randomquote == 2 then
-replicatedstorage.Taunt:FireServer(chr.Head, "rbxassetid://3651526876", 0,3.5, 0)
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://3651526876", 0,3.5, 0)
+	elseif randomquote == 3 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://5569743507", 0,3.5, 0)
+	elseif randomquote == 4 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://5569742638", 0,3.5, 0)
+	elseif randomquote == 5 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://5569744580", 0,3.5, 0)
+	elseif randomquote == 6 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://5571408417", 0,3.5, 0)
+	elseif randomquote == 7 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://1280294411", 0,3.5, 0)
+	elseif randomquote == 8 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4693804265", 0,3.5, 0)
+	elseif randomquote == 9 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4686410979", 0,3.5, 0)
+	elseif randomquote == 10 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4686410317", 0,3.5, 0)
+	elseif randomquote == 11 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4654042242", 0,3.5, 0)
+	elseif randomquote == 12 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4464243333", 0,3.5, 0)
+	elseif randomquote == 13 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4463895703", 0,3.5, 0)
+	elseif randomquote == 14 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://616582888", 0,3.5, 0)
+	elseif randomquote == 15 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://794068813", 0,3.5, 0)
+	elseif randomquote == 16 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://616576465", 0,3.5, 0)
+	elseif randomquote == 17 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4733928693", 0,3.5, 0)
+	elseif randomquote == 18 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4707230860", 0,3.5, 0)
+	elseif randomquote == 19 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://5572232666", 0,3.5, 0)
+	elseif randomquote == 20 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://5572233210", 0,3.5, 0)
+	elseif randomquote == 21 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4654034307", 0,3.5, 0)
+	elseif randomquote == 22 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://4470772287", 0,3.5, 0)
+	elseif randomquote == 23 then
+game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://5572231558", 0,3.5, 0)
 		end
-    wait(3.5)
+    wait(6)
 	tauntactive = false
 end
 ---------------------------------
@@ -2261,6 +2303,8 @@ game.Lighting.TA.Changed:Connect(function()
     if death == true then return end
     if attackmode == false then
     if game.Lighting.TA.Value == true then
+        tauntactive = true
+        game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://2540377045", 0,3.5, 0)
         trans0()
         _G.anim17:Play()
         rtzevent:FireServer(true)
@@ -2269,6 +2313,8 @@ game.Lighting.TA.Changed:Connect(function()
         trans1()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
+        wait(2.5)
+        tauntactive = false
         end
     end
 end)
