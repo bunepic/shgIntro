@@ -2271,6 +2271,8 @@ game.Lighting.TS.Changed:Connect(function()
     if death == true then return end
     if attackmode == false then
     if game.Lighting.TS.Value == true then
+        tauntactive = true
+        game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://2540377045", 0,3.5, 0)
         trans0()
         _G.anim17:Play()
         rtzevent:FireServer(true)
@@ -2279,6 +2281,8 @@ game.Lighting.TS.Changed:Connect(function()
         trans1()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
+        wait(2.5)
+        tauntactive = false)
         end
     end
 end)
@@ -2287,6 +2291,8 @@ game.Lighting.TE.Changed:Connect(function()
     if death == true then return end
     if attackmode == false then
     if game.Lighting.TE.Value == true then
+        tauntactive = true
+        game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://2540377045", 0,3.5, 0)
         trans0()
         _G.anim17:Play()
         rtzevent:FireServer(true)
@@ -2295,6 +2301,8 @@ game.Lighting.TE.Changed:Connect(function()
         trans1()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
+        wait(2.5)
+        tauntactive = false
         end
     end
 end)
@@ -2323,6 +2331,8 @@ game.Lighting.GI.Changed:Connect(function()
     if death == true then return end
     if attackmode == false then
     if game.Lighting.GI.Value == true then
+        tauntactive = true
+        game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://2540377045", 0,3.5, 0)
         trans0()
         _G.anim17:Play()
         rtzevent:FireServer(true)
@@ -2331,6 +2341,8 @@ game.Lighting.GI.Changed:Connect(function()
         trans1()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
+        wait(2.5)
+        tauntactive = false
         end
     end
 end)
