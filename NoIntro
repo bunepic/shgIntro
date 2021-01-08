@@ -2282,7 +2282,7 @@ game.Lighting.TS.Changed:Connect(function()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
         wait(2.5)
-        tauntactive = false)
+        tauntactive = false
         end
     end
 end)
@@ -3912,7 +3912,7 @@ _G.beatdown = function()
 end
 -------------------------------------------
 -------------------------------------------
-mouse.KeyDown:Connect(function(key)
+--[[mouse.KeyDown:Connect(function(key)
     if key == 'j' then
 	if attackmode == true then return end
 	if standmodecooler == false then return end
@@ -3971,7 +3971,7 @@ mouse.KeyDown:Connect(function(key)
 		print(beatdown)
     end 
 end
-end)
+end)]]--
 -----------------------------------------------
 _G.healall = function()
     for i,v in pairs(game.Workspace.Entities:GetChildren()) do
