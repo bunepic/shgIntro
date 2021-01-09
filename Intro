@@ -3997,6 +3997,42 @@ mouse.KeyDown:Connect(function(key)
     end 
 end) 
 -----------------------------------------------
+local niggacount = 0
+
+mouse.KeyDown:Connect(function(key)
+    if key == '1' then
+    if active == true then return end
+	if death == true then return end
+    if loading == true then return end
+	if attackmode == false then return end
+	if specmodecooler == false then return end
+	    if mouse.Target and mouse.Target.Parent:FindFirstChild("Humanoid") then
+	    	active = true
+	    	local horp = mouse.Target.Parent:FindFirstChild("HumanoidRootPart")
+	    	local magnitude = (horp.Position - hrp.Position).magnitude
+	    	local ezkill = mouse.Target.Parent
+            game.ReplicatedStorage.HamonSword:FireServer(ezkill.Humanoid, 1, math.huge, Vector3.new(0,0,0))
+            game.ReplicatedStorage.SamuraiDamage2:FireServer(ezkill.Humanoid, 1, math.huge, Vector3.new(0,0,0))
+	    	repeat
+	    	    game:GetService("ReplicatedStorage").Damage12Sans:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 0, 20, Vector3.new(0, 0, 0), 0.5, "", 1, 1)
+	    	    game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 0, 20, Vector3.new(0, 0, 0), 0.3, "", 1, 1)
+	    	    wait(0.1)
+	    	    game:GetService("ReplicatedStorage").FOTPSDamageTeleport:FireServer(ezkill, "NIGGER")
+	    	    niggacount = niggacount + 1
+	    	until niggacount == 40
+	    	game:GetService("ReplicatedStorage").Damage12Sans:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 99, 20, Vector3.new(0, 0, 0), 1, "", 1, 1)
+	    	game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 99, 20, Vector3.new(0, 0, 0), 1, "", 1, 1)
+	    	game:GetService("ReplicatedStorage").Damage12Sans:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 99, 20, Vector3.new(0, 0, 0), 1, "", 1, 1)
+	    	game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 99, 20, Vector3.new(0, 0, 0), 1, "", 1, 1)
+	    	game:GetService("ReplicatedStorage").Damage12Sans:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 99, 20, Vector3.new(0, 0, 0), 1, "", 1, 1)
+	    	game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 99, 20, Vector3.new(0, 0, 0), 1, "", 1, 1)
+	    	niggacount = 0
+	    	ezkill = nil
+	    	active = false
+	    end
+    end
+end)
+-----------------------------------------------
 local lecount = 0
 
 loading = true
