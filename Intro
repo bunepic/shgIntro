@@ -4107,3 +4107,216 @@ _G.anim11:AdjustSpeed(1.5)
 loading = false
 human.WalkSpeed = 26
 human.JumpPower = 50
+---------------------
+local auractiveleg = false
+
+local auractivehead = false
+
+
+coroutine.resume(coroutine.create(function()
+repeat
+	repeat wait() until auractivehead == false
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,2,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,2,0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,2,1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,2,1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,2,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,2,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,2,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,2,1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,2,1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,2,0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.5,2,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,2,-0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,2,-1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,2,-1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,2,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,2,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,2,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,2,-1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,2,-1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,2,-0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,2,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+until human.Health == 0 or human.Health < 0
+end))
+
+coroutine.resume(coroutine.create(function()
+repeat
+	repeat wait() until auractiveleg == false
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,-3,0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,-3,1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,-3,1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,-3,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,-3,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,-3,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,-3,1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,-3,1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,-3,0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.5,-3,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,-3,-0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,-3,-1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,-3,-1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,-3,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,-3,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,-3,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,-3,-1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,-3,-1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,-3,-0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	wait(0.01)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+until human.Health == 0 or human.Health < 0
+end))
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local SHGGui = Instance.new("ScreenGui")
+local SHGFrame = Instance.new("Frame")
+local auraleg = Instance.new("TextButton")
+local auraHead = Instance.new("TextButton")
+local OpenButton = Instance.new("TextButton")
+
+--Properties:
+
+SHGGui.Name = "SHG:Gui"
+SHGGui.Parent = game.CoreGui
+SHGGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+SHGFrame.Name = "SHG:Frame"
+SHGFrame.Parent = SHGGui
+SHGFrame.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+SHGFrame.BackgroundTransparency = 0.500
+SHGFrame.BorderSizePixel = 2
+SHGFrame.Position = UDim2.new(0.361818135, 0, 0.859356463, 0)
+SHGFrame.Size = UDim2.new(0, 455, 0, 100)
+SHGFrame.Visible = false
+
+auraleg.Name = "aura(leg)"
+auraleg.Parent = SHGFrame
+auraleg.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+auraleg.BackgroundTransparency = 0.300
+auraleg.BorderSizePixel = 0
+auraleg.Position = UDim2.new(0.0219780225, 0, 0.25, 0)
+auraleg.Size = UDim2.new(0, 177, 0, 50)
+auraleg.Font = Enum.Font.Jura
+auraleg.Text = "Aura L toggle"
+auraleg.TextColor3 = Color3.fromRGB(0, 0, 0)
+auraleg.TextSize = 30.000
+auraleg.TextStrokeTransparency = 0.000
+
+auraHead.Name = "aura(Head)"
+auraHead.Parent = SHGFrame
+auraHead.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+auraHead.BackgroundTransparency = 0.300
+auraHead.BorderSizePixel = 0
+auraHead.Position = UDim2.new(0.589011014, 0, 0.25, 0)
+auraHead.Size = UDim2.new(0, 177, 0, 50)
+auraHead.Font = Enum.Font.Jura
+auraHead.Text = "Aura H toggle"
+auraHead.TextColor3 = Color3.fromRGB(0, 0, 0)
+auraHead.TextSize = 30.000
+auraHead.TextStrokeTransparency = 0.000
+
+OpenButton.Name = "OpenButton"
+OpenButton.Parent = SHGGui
+OpenButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+OpenButton.BorderColor3 = Color3.fromRGB(85, 255, 127)
+OpenButton.Position = UDim2.new(0.986060619, 0, 0.411203802, 0)
+OpenButton.Size = UDim2.new(0, 82, 0, 50)
+OpenButton.Font = Enum.Font.SourceSans
+OpenButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+OpenButton.TextSize = 14.000
+OpenButton.TextTransparency = 1.000
+
+-- Scripts:
+
+local function EXDB_fake_script() -- auraleg.auraLegScript 
+	local script = Instance.new('LocalScript', auraleg)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		if auractiveleg == false then
+			auractiveleg = true
+		else
+			auractiveleg = false
+		end
+	end)
+end
+coroutine.wrap(EXDB_fake_script)()
+local function TJCTHLN_fake_script() -- auraHead.auraHeadScript 
+	local script = Instance.new('LocalScript', auraHead)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		if auractivehead == false then
+			auractivehead = true
+		else
+			auractivehead = false
+		end
+	end)
+end
+coroutine.wrap(TJCTHLN_fake_script)()
+local function GVYFYTB_fake_script() -- OpenButton.openbuttonscript 
+	local script = Instance.new('LocalScript', OpenButton)
+
+	local frame = script.Parent.Parent["SHG:Frame"]
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if frame.Visible == false then
+			frame.Visible = true
+		else
+			frame.Visible = false
+		end
+	end)
+end
+coroutine.wrap(GVYFYTB_fake_script)()
+local function DIZZRAM_fake_script() -- SHGGui.GuiDestroy 
+	local script = Instance.new('LocalScript', SHGGui)
+
+	game.Players.LocalPlayer.Character.Humanoid.HealthChanged:connect(function()
+		if game.Players.LocalPlayer.Character.Humanoid.Health < 1 then
+			script.Parent:Destroy()
+		end
+	end)
+end
+coroutine.wrap(DIZZRAM_fake_script)()
