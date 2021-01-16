@@ -323,9 +323,9 @@ if specmodecooler == true then return end
 	repeat
 		wait()
 		game:GetService("ReplicatedStorage").VampireDash:FireServer(BrickColor.new("Pastel Blue"))
-		game:GetService("ReplicatedStorage").Damage12Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.008, "", 1, 1)
+		game:GetService("ReplicatedStorage").Damage12Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, nil, 0.008, "", 1, 1)
 		wait(0.1)
-		game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.008, "", 1, 1)
+		game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, nil, 0.008, "", 1, 1)
 		game:GetService("ReplicatedStorage").VampireDash:FireServer(BrickColor.new("Tr. Red"))
 	until attackmode == false
 end
@@ -2267,21 +2267,39 @@ human.HealthChanged:connect(function()
 	end
 end)
 -----------------------------------------------
+local rStorage = game:GetService("ReplicatedStorage")
+local Player = game:GetService("Players").LocalPlayer
+
+local AuraSetter = 0
+local rtzauractive = false
 game.Lighting.TS.Changed:Connect(function()
     if death == true then return end
     if attackmode == false then
     if game.Lighting.TS.Value == true then
+        rtzauractive = true
         tauntactive = true
         game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://2540377045", 0,3.5, 0)
         trans0()
         _G.anim17:Play()
         rtzevent:FireServer(true)
         game:GetService("ReplicatedStorage").RTZEffect:FireServer(true)
+        coroutine.resume(coroutine.create(function()
+        repeat
+            AuraSetter = AuraSetter + 1
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*-5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*0) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            wait()
+        until human.Health < 0.001  or rtzauractive == false
+        end))
         wait(2)
         trans1()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
-        wait(2.5)
+        wait(1.5)
+        rtzauractive = false
+        wait(1)
         tauntactive = false
         end
     end
@@ -2291,17 +2309,30 @@ game.Lighting.TE.Changed:Connect(function()
     if death == true then return end
     if attackmode == false then
     if game.Lighting.TE.Value == true then
+        rtzauractive = true
         tauntactive = true
         game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://2540377045", 0,3.5, 0)
         trans0()
         _G.anim17:Play()
         rtzevent:FireServer(true)
         game:GetService("ReplicatedStorage").RTZEffect:FireServer(true)
+        coroutine.resume(coroutine.create(function()
+        repeat
+            AuraSetter = AuraSetter + 1
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*-5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*0) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            wait()
+        until human.Health < 0.001  or rtzauractive == false
+        end))
         wait(2)
         trans1()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
-        wait(2.5)
+        wait(1.5)
+        rtzauractive = false
+        wait(1)
         tauntactive = false
         end
     end
@@ -2311,17 +2342,30 @@ game.Lighting.TA.Changed:Connect(function()
     if death == true then return end
     if attackmode == false then
     if game.Lighting.TA.Value == true then
+        rtzauractive = true
         tauntactive = true
         game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://2540377045", 0,3.5, 0)
         trans0()
         _G.anim17:Play()
         rtzevent:FireServer(true)
         game:GetService("ReplicatedStorage").RTZEffect:FireServer(true)
+        coroutine.resume(coroutine.create(function()
+        repeat
+            AuraSetter = AuraSetter + 1
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*-5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*0) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            wait()
+        until human.Health < 0.001  or rtzauractive == false
+        end))
         wait(2)
         trans1()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
-        wait(2.5)
+        wait(1.5)
+        rtzauractive = false
+        wait(1)
         tauntactive = false
         end
     end
@@ -2331,17 +2375,30 @@ game.Lighting.GI.Changed:Connect(function()
     if death == true then return end
     if attackmode == false then
     if game.Lighting.GI.Value == true then
+        rtzauractive = true
         tauntactive = true
         game:GetService("ReplicatedStorage").Taunt:FireServer(chr.Head, "rbxassetid://2540377045", 0,3.5, 0)
         trans0()
         _G.anim17:Play()
         rtzevent:FireServer(true)
         game:GetService("ReplicatedStorage").RTZEffect:FireServer(true)
+        coroutine.resume(coroutine.create(function()
+        repeat
+            AuraSetter = AuraSetter + 1
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*-5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*5, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*0) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            rStorage.Damage11Enderman:FireServer(Player.Character.Humanoid, human.Parent.HumanoidRootPart.CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*5, math.sin(AuraSetter * 50)*5) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            wait()
+        until human.Health < 0.001  or rtzauractive == false
+        end))
         wait(2)
         trans1()
         _G.anim17:Stop()
         rtzevent:FireServer(false)
-        wait(2.5)
+        wait(1.5)
+        rtzauractive = false
+        wait(1)
         tauntactive = false
         end
     end
@@ -4108,6 +4165,7 @@ loading = false
 human.WalkSpeed = 26
 human.JumpPower = 50
 ---------------------
+---------------------
 local auractiveleg = false
 
 local auractivehead = false
@@ -4116,94 +4174,94 @@ local auractivehead = false
 coroutine.resume(coroutine.create(function()
 repeat
 	repeat wait() until auractivehead == false
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,2,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,2,0), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,2,0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,2,0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,2,1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,2,1), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,2,1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,2,1.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,2,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,2,2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,2,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,2,2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,2,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,2,2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,2,1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,2,1.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,2,1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,2,1), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,2,0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,2,0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.5,2,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.5,2,0), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,2,-0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,2,-0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,2,-1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,2,-1), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,2,-1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,2,-1.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,2,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,2,-2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,2,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,2,-2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,2,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,2,-2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,2,-1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,2,-1.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,2,-1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,2,-1), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,2,-0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,2,-0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,2,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,2,0), 0, 0, nil, 0, "", 1, 1)
 until human.Health == 0 or human.Health < 0
 end))
 
 coroutine.resume(coroutine.create(function()
 repeat
 	repeat wait() until auractiveleg == false
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,-3,0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,-3,0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,-3,1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,-3,1), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,-3,1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,-3,1.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,-3,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,-3,2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,-3,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,-3,2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,-3,2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,-3,2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,-3,1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,-3,1.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,-3,1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,-3,1), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,-3,0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,-3,0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.5,-3,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.5,-3,0), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,-3,-0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-1.2,-3,-0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,-3,-1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.9,-3,-1), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,-3,-1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.6,-3,-1.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,-3,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(-0.3,-3,-2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,-3,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0,-3,-2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,-3,-2), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.3,-3,-2), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,-3,-1.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.6,-3,-1.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,-3,-1), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(0.9,-3,-1), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,-3,-0.5), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,-3,-0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, nil, 0, "", 1, 1)
 until human.Health == 0 or human.Health < 0
 end))
 
