@@ -4090,6 +4090,99 @@ mouse.KeyDown:Connect(function(key)
     end
 end)
 -----------------------------------------------
+_G.supastronkpunch4mode = function()
+    for i,v in pairs(game.Workspace.Entities:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 165 then
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), 0, "", 1, 1)
+            end
+        end
+    end
+end
+
+local megapunchactiveautra = false
+
+mouse.KeyDown:connect(function(key)
+	if key == "h" then
+    if active == true then return end
+	if death == true then return end
+    if loading == true then return end
+	if attackmode == false then return end
+	if specmodecooler == false then return end
+		active = true
+		_G.anim30:Play()
+		megapunchactiveautra = false
+		coroutine.resume(coroutine.create(function()
+		repeat
+            AuraSetter = AuraSetter + 1
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*1, math.sin(AuraSetter * 50)*0), 0, 0, Vector3.new(0,0,0), "rbxassetid://245751634", 3, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*2, math.sin(AuraSetter * 50)*1), 0, 0, Vector3.new(0,0,0), "rbxassetid://", 3, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*-1, math.sin(AuraSetter * 50)*0), 0, 0, Vector3.new(0,0,0), "rbxassetid://245751634", 3, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*-2, math.sin(AuraSetter * 50)*-2), 0, 0, Vector3.new(0,0,0), "rbxassetid://", 3, Color3.new(0, 255, 0), "", 1, 1)
+            game.ReplicatedStorage.Damage:FireServer(human, chr["Right Arm"].CFrame * CFrame.new(math.sin(AuraSetter * 50)*0, math.cos(AuraSetter * 50)*-2, math.sin(AuraSetter * 50)*3), 0, 0, Vector3.new(0,0,0), "rbxassetid://245751634", 3, Color3.new(0, 255, 0), "", 1, 1)
+            wait()
+		until human.Health < 0.001 or megapunchactiveautra == true
+		end))
+		wait(0.55)
+		_G.anim30:AdjustSpeed(2.5) 
+        _G.supastronkpunch4mode()
+		_G.anim30:AdjustSpeed(0)
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(0.5, 19, 0.5), Vector3.new(0.5, 19, 0.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(1, 18, 1), Vector3.new(1, 18, 1), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(1.5, 17, 1.5), Vector3.new(1.5, 17, 1.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(2, 16, 2), Vector3.new(2, 16, 2), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(2.5, 15, 2.5), Vector3.new(2.5, 15, 2.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(3, 14, 3), Vector3.new(3, 14, 3), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(3.5, 13, 3.5), Vector3.new(3.5, 13, 3.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(4, 12, 4), Vector3.new(4, 12, 4), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(4.5, 11, 4.5), Vector3.new(4.5, 11, 4.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(5, 10, 5), Vector3.new(5, 10, 5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(5.5, 9, 5.5), Vector3.new(5.5, 9, 5.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(6, 8, 6), Vector3.new(6, 8, 6), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(6.5, 7, 6.5), Vector3.new(6.5, 7, 6.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(7, 6, 7), Vector3.new(7, 6, 7), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(7.5, 5, 7.5), Vector3.new(7.5, 5, 7.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(8, 4, 8), Vector3.new(8, 4, 8), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(8.5, 1, 8.5), Vector3.new(8.5, 3, 8.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(9, 2, 9), Vector3.new(9, 2, 9), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(9.5, 1, 9.5), Vector3.new(9.5, 1, 9.5), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(10, 0.1, 10), Vector3.new(10, 0.1, 10), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(11, 0.1, 11), Vector3.new(11, 0.1, 11), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(12, 0.1, 12), Vector3.new(12, 0.1, 12), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(13, 0.1, 13), Vector3.new(13, 0.1, 13), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(14, 0.1, 14), Vector3.new(14, 0.1, 14), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(15, 0.1, 15), Vector3.new(15, 0.1, 15), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(1, -0.5, 1), Vector3.new(1, -0.5, 1), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(2, -1, 2), Vector3.new(2, -1, 2), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(3, -1.5, 3), Vector3.new(3, -1.5, 3), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(4, -2, 4), Vector3.new(4, -2, 4), BrickColor.new("Bright green"))
+		game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(5, -2.5, 5), Vector3.new(5, -2.5, 5), BrickColor.new("Bright green"))
+		wait(0.1)
+		_G.anim30:AdjustSpeed(1)
+		wait(0.8)
+		megapunchactiveautra = true
+        wait(0.4)
+		active = false
+	end
+end)
+-----------------------------------------------
 local lecount = 0
 
 loading = true
