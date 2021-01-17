@@ -4355,23 +4355,12 @@ local SHGGui = Instance.new("ScreenGui")
 local SHGFrame = Instance.new("Frame")
 local auraleg = Instance.new("TextButton")
 local auraHead = Instance.new("TextButton")
-local ShgScroll = Instance.new("ScrollingFrame")
-local _1modeLabel = Instance.new("TextLabel")
-local _1modeMoveset = Instance.new("TextLabel")
-local _2modeLabel = Instance.new("TextLabel")
-local _2modeMoveset = Instance.new("TextLabel")
-local _3modeLabel = Instance.new("TextLabel")
-local _3modeMoveset = Instance.new("TextLabel")
-local _4modeLabel = Instance.new("TextLabel")
-local _4modeMoveset = Instance.new("TextLabel")
-local Misc = Instance.new("TextLabel")
-local MiscMoves = Instance.new("TextLabel")
 local OpenButton = Instance.new("TextButton")
 
 --Properties:
 
 SHGGui.Name = "SHG:Gui"
-SHGGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+SHGGui.Parent = game.CoreGui
 SHGGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 SHGFrame.Name = "SHG:Frame"
@@ -4409,126 +4398,6 @@ auraHead.TextColor3 = Color3.fromRGB(0, 0, 0)
 auraHead.TextSize = 30.000
 auraHead.TextStrokeTransparency = 0.000
 
-ShgScroll.Name = "ShgScroll"
-ShgScroll.Parent = SHGFrame
-ShgScroll.Active = true
-ShgScroll.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-ShgScroll.BackgroundTransparency = 0.700
-ShgScroll.Position = UDim2.new(1.3940593, 0, -7.21999979, 0)
-ShgScroll.Size = UDim2.new(0, 418, 0, 165)
-ShgScroll.CanvasPosition = Vector2.new(0, 835)
-ShgScroll.CanvasSize = UDim2.new(0, 0, 10, 0)
-
-_1modeLabel.Name = "1modeLabel"
-_1modeLabel.Parent = ShgScroll
-_1modeLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_1modeLabel.BackgroundTransparency = 1.000
-_1modeLabel.Position = UDim2.new(0.246411487, 0, 0, 0)
-_1modeLabel.Size = UDim2.new(0, 200, 0, 32)
-_1modeLabel.Font = Enum.Font.SciFi
-_1modeLabel.Text = "First Mode:"
-_1modeLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-_1modeLabel.TextSize = 30.000
-
-_1modeMoveset.Name = "1modeMoveset"
-_1modeMoveset.Parent = _1modeLabel
-_1modeMoveset.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_1modeMoveset.BackgroundTransparency = 1.000
-_1modeMoveset.Position = UDim2.new(-0.514999986, 0, 1, 0)
-_1modeMoveset.Size = UDim2.new(0, 395, 0, 168)
-_1modeMoveset.Font = Enum.Font.SciFi
-_1modeMoveset.Text = "Q - Fast 3 slashes that cuts limbs\\nE - Fast uppercut\\nR - strong punch x E combo\\nT - UpperCUTS\\nF - Emerald Splash\\nY - Godmode Giver\\nG - Player uppercut\\n1 - Limb cutter Donut"
-_1modeMoveset.TextColor3 = Color3.fromRGB(0, 0, 0)
-_1modeMoveset.TextSize = 20.000
-
-_2modeLabel.Name = "2modeLabel"
-_2modeLabel.Parent = ShgScroll
-_2modeLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_2modeLabel.BackgroundTransparency = 1.000
-_2modeLabel.Position = UDim2.new(0.246411473, 0, 0.199666679, 0)
-_2modeLabel.Size = UDim2.new(0, 200, 0, 32)
-_2modeLabel.Font = Enum.Font.SciFi
-_2modeLabel.Text = "Second Mode:"
-_2modeLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-_2modeLabel.TextSize = 30.000
-
-_2modeMoveset.Name = "2modeMoveset"
-_2modeMoveset.Parent = _2modeLabel
-_2modeMoveset.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_2modeMoveset.BackgroundTransparency = 1.000
-_2modeMoveset.Position = UDim2.new(-0.514999986, 0, 1, 0)
-_2modeMoveset.Size = UDim2.new(0, 395, 0, 165)
-_2modeMoveset.Font = Enum.Font.SciFi
-_2modeMoveset.Text = "E - Funny Jab\\nR - \"ded\" Punch\\nF - Kick to the air\\nG - Leg Slam\\nQ - Fotps Grab\\n1 - T pose donut"
-_2modeMoveset.TextColor3 = Color3.fromRGB(0, 0, 0)
-_2modeMoveset.TextSize = 25.000
-
-_3modeLabel.Name = "3modeLabel"
-_3modeLabel.Parent = ShgScroll
-_3modeLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_3modeLabel.BackgroundTransparency = 1.000
-_3modeLabel.Position = UDim2.new(0.244019136, 0, 0.391166627, 0)
-_3modeLabel.Size = UDim2.new(0, 200, 0, 32)
-_3modeLabel.Font = Enum.Font.SciFi
-_3modeLabel.Text = "Third  Mode:"
-_3modeLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-_3modeLabel.TextSize = 30.000
-
-_3modeMoveset.Name = "3modeMoveset"
-_3modeMoveset.Parent = _3modeLabel
-_3modeMoveset.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_3modeMoveset.BackgroundTransparency = 1.000
-_3modeMoveset.Position = UDim2.new(-0.50999999, 0, 1.53125, 0)
-_3modeMoveset.Size = UDim2.new(0, 395, 0, 165)
-_3modeMoveset.Font = Enum.Font.SciFi
-_3modeMoveset.Text = "Q - Heal Barrage\\nE - Barrage\\nR - Erasing Punch\\nT - Kars Slashes\\nF - Combo\\nG - Stw Dash\\n4 - Nuke , Kills everyone on the server\\nH - Counter that erases enemy"
-_3modeMoveset.TextColor3 = Color3.fromRGB(0, 0, 0)
-_3modeMoveset.TextSize = 25.000
-
-_4modeLabel.Name = "4modeLabel"
-_4modeLabel.Parent = ShgScroll
-_4modeLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_4modeLabel.BackgroundTransparency = 1.000
-_4modeLabel.Position = UDim2.new(0.241626799, 0, 0.62499994, 0)
-_4modeLabel.Size = UDim2.new(0, 200, 0, 32)
-_4modeLabel.Font = Enum.Font.SciFi
-_4modeLabel.Text = "Fourth  Mode:"
-_4modeLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-_4modeLabel.TextSize = 30.000
-
-_4modeMoveset.Name = "4modeMoveset"
-_4modeMoveset.Parent = _4modeLabel
-_4modeMoveset.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_4modeMoveset.BackgroundTransparency = 1.000
-_4modeMoveset.Position = UDim2.new(-0.504999995, 0, 1, 0)
-_4modeMoveset.Size = UDim2.new(0, 395, 0, 165)
-_4modeMoveset.Font = Enum.Font.SciFi
-_4modeMoveset.Text = "E - Barrage\\nR - Strong Punch\\nT - Omt buffed scream (cancels ts,ta,te,gi)\\nF - Uppercut/kick combo\\nG - Gun.\\nH - A really strong punch\\n7 - Blackhole"
-_4modeMoveset.TextColor3 = Color3.fromRGB(0, 0, 0)
-_4modeMoveset.TextSize = 23.000
-
-Misc.Name = "Misc"
-Misc.Parent = ShgScroll
-Misc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Misc.BackgroundTransparency = 1.000
-Misc.Position = UDim2.new(0.191387564, 0, 0.815272748, 0)
-Misc.Size = UDim2.new(0, 245, 0, 50)
-Misc.Font = Enum.Font.ArialBold
-Misc.Text = "Misc:"
-Misc.TextColor3 = Color3.fromRGB(0, 0, 0)
-Misc.TextSize = 40.000
-
-MiscMoves.Name = "MiscMoves"
-MiscMoves.Parent = Misc
-MiscMoves.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-MiscMoves.BackgroundTransparency = 1.000
-MiscMoves.Position = UDim2.new(-0.304999888, 0, 0.660000026, 0)
-MiscMoves.Size = UDim2.new(0, 395, 0, 145)
-MiscMoves.Font = Enum.Font.SciFi
-MiscMoves.Text = "C - Teleport to mouse\\nV - FOTPS Teleport\\nX - Mode Changer (1,2)\\n- - Mode changer (3,4)\\n5 - Bring All\\n9 - Heal All (Cancels godmode)"
-MiscMoves.TextColor3 = Color3.fromRGB(0, 0, 0)
-MiscMoves.TextSize = 23.000
-
 OpenButton.Name = "OpenButton"
 OpenButton.Parent = SHGGui
 OpenButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
@@ -4542,7 +4411,7 @@ OpenButton.TextTransparency = 1.000
 
 -- Scripts:
 
-local function JSIO_fake_script() -- auraleg.auraLegScript 
+local function EXDB_fake_script() -- auraleg.auraLegScript 
 	local script = Instance.new('LocalScript', auraleg)
 
 	script.Parent.MouseButton1Click:Connect(function()
@@ -4553,8 +4422,8 @@ local function JSIO_fake_script() -- auraleg.auraLegScript
 		end
 	end)
 end
-coroutine.wrap(JSIO_fake_script)()
-local function SBNPTG_fake_script() -- auraHead.auraHeadScript 
+coroutine.wrap(EXDB_fake_script)()
+local function TJCTHLN_fake_script() -- auraHead.auraHeadScript 
 	local script = Instance.new('LocalScript', auraHead)
 
 	script.Parent.MouseButton1Click:Connect(function()
@@ -4565,18 +4434,8 @@ local function SBNPTG_fake_script() -- auraHead.auraHeadScript
 		end
 	end)
 end
-coroutine.wrap(SBNPTG_fake_script)()
-local function FUUQISZ_fake_script() -- SHGGui.GuiDestroy 
-	local script = Instance.new('LocalScript', SHGGui)
-
-	human.HealthChanged:connect(function()
-		if human.Health < 1 then
-			script.Parent:Destroy()
-		end
-	end)
-end
-coroutine.wrap(FUUQISZ_fake_script)()
-local function QMETF_fake_script() -- OpenButton.openbuttonscript 
+coroutine.wrap(TJCTHLN_fake_script)()
+local function GVYFYTB_fake_script() -- OpenButton.openbuttonscript 
 	local script = Instance.new('LocalScript', OpenButton)
 
 	local frame = script.Parent.Parent["SHG:Frame"]
@@ -4589,4 +4448,14 @@ local function QMETF_fake_script() -- OpenButton.openbuttonscript
 		end
 	end)
 end
-coroutine.wrap(QMETF_fake_script)()
+coroutine.wrap(GVYFYTB_fake_script)()
+local function DIZZRAM_fake_script() -- SHGGui.GuiDestroy 
+	local script = Instance.new('LocalScript', SHGGui)
+
+	game.Players.LocalPlayer.Character.Humanoid.HealthChanged:connect(function()
+		if game.Players.LocalPlayer.Character.Humanoid.Health < 1 then
+			script.Parent:Destroy()
+		end
+	end)
+end
+coroutine.wrap(DIZZRAM_fake_script)()
