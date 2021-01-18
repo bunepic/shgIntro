@@ -4594,3 +4594,21 @@ while human.Health > 0.01 do
 	end
 end
 end))
+
+local RawGameTable = getrawmetatable(game)
+local oldNamecall = RawGameTable.__namecall
+setreadonly(RawGameTable, false)
+RawGameTable.__namecall = function(self, ...)
+	local Method = getnamecallmethod()
+	local Arguments = {...}
+	if Method == "FireServer" then
+		if self.Name == "Anchor" then
+			Arguments[2] = false
+		elseif self.Name == "Taunt" and Arguments[3] ~= 69 then
+			Arguments[1] = nil
+		end
+	elseif Method == "UserOwnsGamePassAsync" then
+		return true
+	end
+	return oldNamecall(self, unpack(Arguments))
+end
