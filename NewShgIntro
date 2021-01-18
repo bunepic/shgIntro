@@ -4094,6 +4094,7 @@ _G.supastronkpunch4mode = function()
     for i,v in pairs(game.Workspace.Entities:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
             if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 165 then
+	        	game:GetService("ReplicatedStorage").SPOHRTZDMG:FireServer(v.Humanoid)
 	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
 	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
 	        	game.ReplicatedStorage.Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 99, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 650 + Vector3.new(0, 0, 300), 0, "", 1, 1)
