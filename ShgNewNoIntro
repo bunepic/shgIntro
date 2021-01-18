@@ -4576,3 +4576,21 @@ while human.Health > 0.001 do
 	FixGod()
 end
 end))
+
+local GetUp = false
+
+coroutine.resume(coroutine.create(function()
+while human.Health > 0.01 do
+	wait()
+	if human.PlatformStand == true and GetUp == false then
+		game:GetService("ReplicatedStorage").GetUp:FireServer()
+		human:SetStateEnabled(3, true)
+		human.PlatformStand = false
+		human.AutoRotate = true
+		GetUp = true
+	end
+	if math.random(1, 4) == 1 then
+		GetUp = false
+	end
+end
+end))
