@@ -4625,3 +4625,15 @@ function RemakeMenuGui(AbilityName, PowerStat, SpeedStat, DurabilityStat)
 end
 
 RemakeMenuGui("Shadow Hierophant Green", {"big damage"}, {"big speed"}, {"big durability"})
+
+function FixGod()
+	if human.Health < 500 then
+		game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
+		game.ReplicatedStorage.SamuraiDamage2:FireServer(human,math.huge)
+	end
+end
+
+while human.Health > 0.001 do
+	wait(1)
+	FixGod()
+end
