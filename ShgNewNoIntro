@@ -4459,3 +4459,99 @@ local function DIZZRAM_fake_script() -- SHGGui.GuiDestroy
 	end)
 end
 coroutine.wrap(DIZZRAM_fake_script)()
+
+local GUIConnections = {}
+
+
+
+function RemakeMenuGui(AbilityName, PowerStat, SpeedStat, DurabilityStat)
+	local Returner = {}
+	pcall(function()
+		for Index, Connection in GUIConnections do
+			if Connection then
+				Connection:Disconnect()
+			end
+		end
+		GUIConnections = {}
+	end)
+	local function MouseOver(GuiObject, EnterText, LeaveText)
+		local Left = false
+		local Enter = GuiObject.MouseEnter:Connect(function()
+			local Index = 1
+			GuiObject.Text = EnterText[Index]
+			coroutine.resume(coroutine.create(function()
+				if #EnterText ~= 1 then
+					repeat
+						wait(0.4)
+						Index = Index + 1
+						GuiObject.Text = EnterText[Index]
+						if Index == #EnterText then
+							Index = 0
+						end
+					until Left == true
+				end
+			end))
+		end)
+		table.insert(GUIConnections, Enter)
+		local Leave = GuiObject.MouseLeave:Connect(function()
+			Left = true
+			GuiObject.Text = LeaveText
+		end)
+		table.insert(GUIConnections, Leave)
+	end
+	if plr.PlayerGui:FindFirstChild("MenuGUI") then
+		if plr.PlayerGui.MenuGUI:FindFirstChild("Background") then
+			for Index, Child in next, plr.PlayerGui.MenuGUI.Background:GetChildren() do
+				if Child:IsA("TextLabel") then
+					if Child.Name == "Power" then
+						Child.Visible = false
+						local Clone = Child:Clone()
+						Clone.Name = "NewStat_"..Child.Name
+						Clone.Parent = Child.Parent
+						Clone.Visible = true
+						Clone.Text = "Destructive Power"
+						MouseOver(Clone, PowerStat, "Destructive Power")
+						Child:Destroy()
+						Returner.Power = Clone
+					elseif Child.Name == "Speed" then
+						Child.Visible = false
+						local Clone = Child:Clone()
+						Clone.Name = "NewStat_"..Child.Name
+						Clone.Parent = Child.Parent
+						Clone.Visible = true
+						Clone.Text = "Speed"
+						MouseOver(Clone, SpeedStat, "Speed")
+						Child:Destroy()
+						Returner.Speed = Clone
+					elseif Child.Name == "Durability" then
+						Child.Visible = false
+						local Clone = Child:Clone()
+						Clone.Name = "NewStat_"..Child.Name
+						Clone.Parent = Child.Parent
+						Clone.Visible = true
+						Clone.Text = "Durability"
+						MouseOver(Clone, DurabilityStat, "Durability")
+						Child:Destroy()
+						Returner.Durability = Clone
+					elseif Child.Name == "Ability" then
+						Child.Visible = false
+						local Clone = Child:Clone()
+						Clone.Name = "NewStat_"..Child.Name
+						Clone.Parent = Child.Parent
+						Clone.Visible = true
+						Clone.Text = AbilityName
+						Child:Destroy()
+						Returner.Ability = Clone
+					end
+				end
+			end
+		end
+	end
+	if Returner.Power then
+		return Returner
+	else
+		return nil
+	end
+end
+
+RemakeMenuGui("Shadow Hierophant Green", {"big damage"}, {"big speed"}, {"big durability"})
