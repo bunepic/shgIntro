@@ -4640,7 +4640,10 @@ function FixGod()
 	end
 end
 
+coroutine.resume(coroutine.create(function()
 while human.Health > 0.001 do
 	wait(1)
 	FixGod()
 end
+end))
+
