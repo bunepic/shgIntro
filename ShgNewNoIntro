@@ -4353,73 +4353,732 @@ repeat
 until human.Health == 0 or human.Health < 0
 end))
 
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local SHGGui = Instance.new("ScreenGui")
-local SHGFrame = Instance.new("Frame")
-local auraleg = Instance.new("TextButton")
-local auraHead = Instance.new("TextButton")
-local OpenButton = Instance.new("TextButton")
+local SettingsGui = Instance.new("ScreenGui")
+local Settings = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local Moveset = Instance.new("ScreenGui")
+local moves1 = Instance.new("ScrollingFrame")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local TextLabel_5 = Instance.new("TextLabel")
+local TextLabel_6 = Instance.new("TextLabel")
+local TextLabel_7 = Instance.new("TextLabel")
+local TextLabel_8 = Instance.new("TextLabel")
+local TextLabel_9 = Instance.new("TextLabel")
+local TextLabel_10 = Instance.new("TextLabel")
+local TextLabel_11 = Instance.new("TextLabel")
+local TextLabel_12 = Instance.new("TextLabel")
+local TextLabel_13 = Instance.new("TextLabel")
+local TextLabel_14 = Instance.new("TextLabel")
+local TextLabel_15 = Instance.new("TextLabel")
+local TextLabel_16 = Instance.new("TextLabel")
+local TextLabel_17 = Instance.new("TextLabel")
+local TextLabel_18 = Instance.new("TextLabel")
+local TextLabel_19 = Instance.new("TextLabel")
+local TextLabel_20 = Instance.new("TextLabel")
+local TextLabel_21 = Instance.new("TextLabel")
+local TextLabel_22 = Instance.new("TextLabel")
+local TextLabel_23 = Instance.new("TextLabel")
+local TextLabel_24 = Instance.new("TextLabel")
+local TextLabel_25 = Instance.new("TextLabel")
+local TextLabel_26 = Instance.new("TextLabel")
+local PageCounter = Instance.new("TextLabel")
+local TextButton_3 = Instance.new("TextButton")
+local TextLabel_27 = Instance.new("TextLabel")
+local moves2 = Instance.new("ScrollingFrame")
+local TextLabel_28 = Instance.new("TextLabel")
+local TextLabel_29 = Instance.new("TextLabel")
+local TextLabel_30 = Instance.new("TextLabel")
+local TextLabel_31 = Instance.new("TextLabel")
+local TextLabel_32 = Instance.new("TextLabel")
+local TextLabel_33 = Instance.new("TextLabel")
+local TextLabel_34 = Instance.new("TextLabel")
+local TextLabel_35 = Instance.new("TextLabel")
+local TextLabel_36 = Instance.new("TextLabel")
+local TextLabel_37 = Instance.new("TextLabel")
+local TextLabel_38 = Instance.new("TextLabel")
+local TextLabel_39 = Instance.new("TextLabel")
+local TextLabel_40 = Instance.new("TextLabel")
+local TextLabel_41 = Instance.new("TextLabel")
+local TextLabel_42 = Instance.new("TextLabel")
+local TextLabel_43 = Instance.new("TextLabel")
+local TextLabel_44 = Instance.new("TextLabel")
+local PageCounter_2 = Instance.new("TextLabel")
+local TextButton_4 = Instance.new("TextButton")
+local TextLabel_45 = Instance.new("TextLabel")
+local TextLabel_46 = Instance.new("TextLabel")
+local TextLabel_47 = Instance.new("TextLabel")
+local TextLabel_48 = Instance.new("TextLabel")
+local TextLabel_49 = Instance.new("TextLabel")
+local TextLabel_50 = Instance.new("TextLabel")
+local Open = Instance.new("TextButton")
 
 --Properties:
 
-SHGGui.Name = "SHG:Gui"
-SHGGui.Parent = game.CoreGui
-SHGGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+SettingsGui.Name = "SettingsGui"
+SettingsGui.Parent = game.CoreGui
+SettingsGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-SHGFrame.Name = "SHG:Frame"
-SHGFrame.Parent = SHGGui
-SHGFrame.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-SHGFrame.BackgroundTransparency = 0.500
-SHGFrame.BorderSizePixel = 2
-SHGFrame.Position = UDim2.new(0.361818135, 0, 0.859356463, 0)
-SHGFrame.Size = UDim2.new(0, 455, 0, 100)
-SHGFrame.Visible = false
+Settings.Name = "Settings"
+Settings.Parent = SettingsGui
+Settings.Active = true
+Settings.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+Settings.BackgroundTransparency = 0.350
+Settings.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Settings.Position = UDim2.new(0.375928849, 0, 0.860218048, 0)
+Settings.Size = UDim2.new(0, 408, 0, 117)
+Settings.Visible = false
 
-auraleg.Name = "aura(leg)"
-auraleg.Parent = SHGFrame
-auraleg.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-auraleg.BackgroundTransparency = 0.300
-auraleg.BorderSizePixel = 0
-auraleg.Position = UDim2.new(0.0219780225, 0, 0.25, 0)
-auraleg.Size = UDim2.new(0, 177, 0, 50)
-auraleg.Font = Enum.Font.Jura
-auraleg.Text = "Aura L toggle"
-auraleg.TextColor3 = Color3.fromRGB(0, 0, 0)
-auraleg.TextSize = 30.000
-auraleg.TextStrokeTransparency = 0.000
+TextLabel.Parent = Settings
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+TextLabel.BackgroundTransparency = 0.600
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.Size = UDim2.new(0, 408, 0, 25)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = "SHG - Aura Settings"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 20.000
 
-auraHead.Name = "aura(Head)"
-auraHead.Parent = SHGFrame
-auraHead.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-auraHead.BackgroundTransparency = 0.300
-auraHead.BorderSizePixel = 0
-auraHead.Position = UDim2.new(0.589011014, 0, 0.25, 0)
-auraHead.Size = UDim2.new(0, 177, 0, 50)
-auraHead.Font = Enum.Font.Jura
-auraHead.Text = "Aura H toggle"
-auraHead.TextColor3 = Color3.fromRGB(0, 0, 0)
-auraHead.TextSize = 30.000
-auraHead.TextStrokeTransparency = 0.000
+TextLabel_2.Parent = TextLabel
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.Position = UDim2.new(0.210784316, 0, 1, 0)
+TextLabel_2.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_2.Font = Enum.Font.Cartoon
+TextLabel_2.Text = "You can enable/disable the aura by clicking on these buttons"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 16.000
 
-OpenButton.Name = "OpenButton"
-OpenButton.Parent = SHGGui
-OpenButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-OpenButton.BorderColor3 = Color3.fromRGB(85, 255, 127)
-OpenButton.Position = UDim2.new(0.986060619, 0, 0.411203802, 0)
-OpenButton.Size = UDim2.new(0, 82, 0, 50)
-OpenButton.Font = Enum.Font.SourceSans
-OpenButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-OpenButton.TextSize = 14.000
-OpenButton.TextTransparency = 1.000
+TextButton.Parent = TextLabel_2
+TextButton.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+TextButton.BackgroundTransparency = 0.650
+TextButton.Position = UDim2.new(-0.263829798, 0, 1.31707323, 0)
+TextButton.Size = UDim2.new(0, 176, 0, 38)
+TextButton.Font = Enum.Font.Cartoon
+TextButton.Text = "Trail Toggle"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 35.000
+
+TextButton_2.Parent = TextLabel_2
+TextButton_2.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+TextButton_2.BackgroundTransparency = 0.650
+TextButton_2.Position = UDim2.new(0.523404241, 0, 1.31707323, 0)
+TextButton_2.Size = UDim2.new(0, 176, 0, 38)
+TextButton_2.Font = Enum.Font.Cartoon
+TextButton_2.Text = "Halo Toggle"
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 35.000
+
+Moveset.Name = "Moveset"
+Moveset.Parent = Settings
+Moveset.Enabled = false
+Moveset.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+moves1.Name = "moves1"
+moves1.Parent = Moveset
+moves1.Active = true
+moves1.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+moves1.Position = UDim2.new(0, 0, 0.203036055, 0)
+moves1.Size = UDim2.new(0, 358, 0, 420)
+
+TextLabel_3.Parent = moves1
+TextLabel_3.Active = true
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+TextLabel_3.BackgroundTransparency = 0.600
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.Size = UDim2.new(0, 345, 0, 25)
+TextLabel_3.Font = Enum.Font.Cartoon
+TextLabel_3.Text = "SHG - Movesets"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextSize = 20.000
+
+TextLabel_4.Parent = TextLabel_3
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.Position = UDim2.new(0.158610404, 0, 29.7599964, 0)
+TextLabel_4.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_4.Font = Enum.Font.Cartoon
+TextLabel_4.Text = "E - Funny Jab"
+TextLabel_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.TextSize = 20.000
+
+TextLabel_5.Parent = TextLabel_3
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.Position = UDim2.new(0.155711859, 0, 4.24000025, 0)
+TextLabel_5.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_5.Font = Enum.Font.Cartoon
+TextLabel_5.Text = "Q - Fast 3 slashes that cuts limbs"
+TextLabel_5.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.TextSize = 20.000
+
+TextLabel_6.Parent = TextLabel_3
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BackgroundTransparency = 1.000
+TextLabel_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_6.Position = UDim2.new(0.158610404, 0, 9.20000076, 0)
+TextLabel_6.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_6.Font = Enum.Font.Cartoon
+TextLabel_6.Text = "T - UpperCUTS"
+TextLabel_6.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_6.TextSize = 20.000
+
+TextLabel_7.Parent = TextLabel_3
+TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.BackgroundTransparency = 1.000
+TextLabel_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_7.Position = UDim2.new(0.158610404, 0, 2.64000034, 0)
+TextLabel_7.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_7.Font = Enum.Font.Cartoon
+TextLabel_7.Text = "Mode 1 Moves:"
+TextLabel_7.TextColor3 = Color3.fromRGB(36, 255, 21)
+TextLabel_7.TextSize = 20.000
+
+TextLabel_8.Parent = TextLabel_3
+TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.BackgroundTransparency = 1.000
+TextLabel_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_8.Position = UDim2.new(0.158610404, 0, 5.88000011, 0)
+TextLabel_8.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_8.Font = Enum.Font.Cartoon
+TextLabel_8.Text = "E - Fast uppercut"
+TextLabel_8.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_8.TextSize = 20.000
+
+TextLabel_9.Parent = TextLabel_3
+TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_9.BackgroundTransparency = 1.000
+TextLabel_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_9.Position = UDim2.new(0.158610404, 0, 1, 0)
+TextLabel_9.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_9.Font = Enum.Font.Cartoon
+TextLabel_9.Text = "Almost All the Movesets in the script"
+TextLabel_9.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_9.TextSize = 16.000
+
+TextLabel_10.Parent = TextLabel_3
+TextLabel_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_10.BackgroundTransparency = 1.000
+TextLabel_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_10.Position = UDim2.new(0.158610404, 0, 7.55999994, 0)
+TextLabel_10.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_10.Font = Enum.Font.Cartoon
+TextLabel_10.Text = "R - strong punch x E combo"
+TextLabel_10.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_10.TextSize = 20.000
+
+TextLabel_11.Parent = TextLabel_3
+TextLabel_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_11.BackgroundTransparency = 1.000
+TextLabel_11.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_11.Position = UDim2.new(0.158610404, 0, 15.8400021, 0)
+TextLabel_11.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_11.Font = Enum.Font.Cartoon
+TextLabel_11.Text = "1 - Limb cutter Donut"
+TextLabel_11.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_11.TextSize = 20.000
+
+TextLabel_12.Parent = TextLabel_3
+TextLabel_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_12.BackgroundTransparency = 1.000
+TextLabel_12.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_12.Position = UDim2.new(0.158610404, 0, 14.2000017, 0)
+TextLabel_12.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_12.Font = Enum.Font.Cartoon
+TextLabel_12.Text = "G - Player uppercut"
+TextLabel_12.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_12.TextSize = 20.000
+
+TextLabel_13.Parent = TextLabel_3
+TextLabel_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_13.BackgroundTransparency = 1.000
+TextLabel_13.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_13.Position = UDim2.new(0.158610404, 0, 10.8400011, 0)
+TextLabel_13.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_13.Font = Enum.Font.Cartoon
+TextLabel_13.Text = "F - Emerald Splash"
+TextLabel_13.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_13.TextSize = 20.000
+
+TextLabel_14.Parent = TextLabel_3
+TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_14.BackgroundTransparency = 1.000
+TextLabel_14.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_14.Position = UDim2.new(0.158610404, 0, 12.4800014, 0)
+TextLabel_14.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_14.Font = Enum.Font.Cartoon
+TextLabel_14.Text = "Y - Godmode Giver"
+TextLabel_14.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_14.TextSize = 20.000
+
+TextLabel_15.Parent = TextLabel_3
+TextLabel_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_15.BackgroundTransparency = 1.000
+TextLabel_15.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_15.Position = UDim2.new(0.155711859, 0, 34.6800003, 0)
+TextLabel_15.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_15.Font = Enum.Font.Cartoon
+TextLabel_15.Text = "G - Leg Slam"
+TextLabel_15.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_15.TextSize = 20.000
+
+TextLabel_16.Parent = TextLabel_3
+TextLabel_16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_16.BackgroundTransparency = 1.000
+TextLabel_16.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_16.Position = UDim2.new(0.158610404, 0, 37.9999962, 0)
+TextLabel_16.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_16.Font = Enum.Font.Cartoon
+TextLabel_16.Text = "1 - T pose donut"
+TextLabel_16.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_16.TextSize = 20.000
+
+TextLabel_17.Parent = TextLabel_3
+TextLabel_17.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_17.BackgroundTransparency = 1.000
+TextLabel_17.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_17.Position = UDim2.new(0.155711859, 0, 25.0799999, 0)
+TextLabel_17.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_17.Font = Enum.Font.Cartoon
+TextLabel_17.Text = "5 - Bring All"
+TextLabel_17.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_17.TextSize = 20.000
+
+TextLabel_18.Parent = TextLabel_3
+TextLabel_18.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_18.BackgroundTransparency = 1.000
+TextLabel_18.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_18.Position = UDim2.new(0.158610404, 0, 23.4400005, 0)
+TextLabel_18.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_18.Font = Enum.Font.Cartoon
+TextLabel_18.Text = "- - Mode changer (3,4)"
+TextLabel_18.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_18.TextSize = 20.000
+
+TextLabel_19.Parent = TextLabel_3
+TextLabel_19.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_19.BackgroundTransparency = 1.000
+TextLabel_19.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_19.Position = UDim2.new(0.155711859, 0, 36.3599968, 0)
+TextLabel_19.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_19.Font = Enum.Font.Cartoon
+TextLabel_19.Text = "Q - Fotps Grab"
+TextLabel_19.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_19.TextSize = 20.000
+
+TextLabel_20.Parent = TextLabel_3
+TextLabel_20.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_20.BackgroundTransparency = 1.000
+TextLabel_20.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_20.Position = UDim2.new(0.158610404, 0, 28.119997, 0)
+TextLabel_20.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_20.Font = Enum.Font.Cartoon
+TextLabel_20.Text = "Mode 2 Moves:"
+TextLabel_20.TextColor3 = Color3.fromRGB(36, 255, 21)
+TextLabel_20.TextSize = 20.000
+
+TextLabel_21.Parent = TextLabel_3
+TextLabel_21.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_21.BackgroundTransparency = 1.000
+TextLabel_21.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_21.Position = UDim2.new(0.158610404, 0, 20.1599998, 0)
+TextLabel_21.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_21.Font = Enum.Font.Cartoon
+TextLabel_21.Text = "V - FOTPS Teleport"
+TextLabel_21.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_21.TextSize = 20.000
+
+TextLabel_22.Parent = TextLabel_3
+TextLabel_22.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_22.BackgroundTransparency = 1.000
+TextLabel_22.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_22.Position = UDim2.new(0.158610404, 0, 21.8000011, 0)
+TextLabel_22.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_22.Font = Enum.Font.Cartoon
+TextLabel_22.Text = "X - Mode Changer (1,2)"
+TextLabel_22.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_22.TextSize = 20.000
+
+TextLabel_23.Parent = TextLabel_3
+TextLabel_23.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_23.BackgroundTransparency = 1.000
+TextLabel_23.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_23.Position = UDim2.new(0.158610404, 0, 26.4799976, 0)
+TextLabel_23.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_23.Font = Enum.Font.Cartoon
+TextLabel_23.Text = "9 - Heal All (Cancels godmode)"
+TextLabel_23.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_23.TextSize = 20.000
+
+TextLabel_24.Parent = TextLabel_3
+TextLabel_24.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_24.BackgroundTransparency = 1.000
+TextLabel_24.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_24.Position = UDim2.new(0.158610404, 0, 31.3999977, 0)
+TextLabel_24.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_24.Font = Enum.Font.Cartoon
+TextLabel_24.Text = "R - \"ded\" Punch"
+TextLabel_24.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_24.TextSize = 20.000
+
+TextLabel_25.Parent = TextLabel_3
+TextLabel_25.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_25.BackgroundTransparency = 1.000
+TextLabel_25.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_25.Position = UDim2.new(0.155711859, 0, 33.0400009, 0)
+TextLabel_25.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_25.Font = Enum.Font.Cartoon
+TextLabel_25.Text = "F - Kick to the air"
+TextLabel_25.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_25.TextSize = 20.000
+
+TextLabel_26.Parent = TextLabel_3
+TextLabel_26.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_26.BackgroundTransparency = 1.000
+TextLabel_26.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_26.Position = UDim2.new(0.158610404, 0, 17.4800014, 0)
+TextLabel_26.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_26.Font = Enum.Font.Cartoon
+TextLabel_26.Text = "Misc:"
+TextLabel_26.TextColor3 = Color3.fromRGB(36, 255, 21)
+TextLabel_26.TextSize = 20.000
+
+PageCounter.Name = "Page Counter"
+PageCounter.Parent = TextLabel_3
+PageCounter.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PageCounter.BackgroundTransparency = 1.000
+PageCounter.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PageCounter.Position = UDim2.new(0.428175598, 0, 39.6399956, 0)
+PageCounter.Size = UDim2.new(0, 48, 0, 41)
+PageCounter.Font = Enum.Font.Cartoon
+PageCounter.Text = "1"
+PageCounter.TextColor3 = Color3.fromRGB(0, 0, 0)
+PageCounter.TextSize = 20.000
+
+TextButton_3.Parent = PageCounter
+TextButton_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_3.BackgroundTransparency = 1.000
+TextButton_3.Position = UDim2.new(0.823752999, 0, -0.0219838023, 0)
+TextButton_3.Size = UDim2.new(0, 44, 0, 40)
+TextButton_3.Font = Enum.Font.Cartoon
+TextButton_3.Text = ">"
+TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.TextSize = 30.000
+
+TextLabel_27.Parent = TextLabel_3
+TextLabel_27.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_27.BackgroundTransparency = 1.000
+TextLabel_27.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_27.Position = UDim2.new(0.158610404, 0, 18.7600021, 0)
+TextLabel_27.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_27.Font = Enum.Font.Cartoon
+TextLabel_27.Text = "C - Teleport to mouse"
+TextLabel_27.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_27.TextSize = 20.000
+
+moves2.Name = "moves2"
+moves2.Parent = Moveset
+moves2.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+moves2.Position = UDim2.new(0, 0, 0.203036055, 0)
+moves2.Size = UDim2.new(0, 358, 0, 420)
+moves2.Visible = false
+
+TextLabel_28.Parent = moves2
+TextLabel_28.Active = true
+TextLabel_28.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+TextLabel_28.BackgroundTransparency = 0.600
+TextLabel_28.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_28.Size = UDim2.new(0, 345, 0, 25)
+TextLabel_28.Font = Enum.Font.Cartoon
+TextLabel_28.Text = "SHG - Movesets"
+TextLabel_28.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_28.TextSize = 20.000
+
+TextLabel_29.Parent = TextLabel_28
+TextLabel_29.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_29.BackgroundTransparency = 1.000
+TextLabel_29.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_29.Position = UDim2.new(0.158610404, 0, 1, 0)
+TextLabel_29.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_29.Font = Enum.Font.Cartoon
+TextLabel_29.Text = "Almost All the Movesets in the script"
+TextLabel_29.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_29.TextSize = 16.000
+
+TextLabel_30.Parent = TextLabel_28
+TextLabel_30.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_30.BackgroundTransparency = 1.000
+TextLabel_30.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_30.Position = UDim2.new(0.158610404, 0, 7.55999994, 0)
+TextLabel_30.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_30.Font = Enum.Font.Cartoon
+TextLabel_30.Text = "R - Erasing Punch"
+TextLabel_30.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_30.TextSize = 20.000
+
+TextLabel_31.Parent = TextLabel_28
+TextLabel_31.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_31.BackgroundTransparency = 1.000
+TextLabel_31.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_31.Position = UDim2.new(0.158610404, 0, 5.88000011, 0)
+TextLabel_31.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_31.Font = Enum.Font.Cartoon
+TextLabel_31.Text = "E - Barrage"
+TextLabel_31.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_31.TextSize = 20.000
+
+TextLabel_32.Parent = TextLabel_28
+TextLabel_32.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_32.BackgroundTransparency = 1.000
+TextLabel_32.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_32.Position = UDim2.new(0.158610404, 0, 4.24000025, 0)
+TextLabel_32.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_32.Font = Enum.Font.Cartoon
+TextLabel_32.Text = "Q- Healing Barrage"
+TextLabel_32.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_32.TextSize = 20.000
+
+TextLabel_33.Parent = TextLabel_28
+TextLabel_33.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_33.BackgroundTransparency = 1.000
+TextLabel_33.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_33.Position = UDim2.new(0.158610404, 0, 9.20000076, 0)
+TextLabel_33.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_33.Font = Enum.Font.Cartoon
+TextLabel_33.Text = "T - Kars Slashes"
+TextLabel_33.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_33.TextSize = 20.000
+
+TextLabel_34.Parent = TextLabel_28
+TextLabel_34.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_34.BackgroundTransparency = 1.000
+TextLabel_34.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_34.Position = UDim2.new(0.158610404, 0, 10.8400011, 0)
+TextLabel_34.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_34.Font = Enum.Font.Cartoon
+TextLabel_34.Text = "F - Combo"
+TextLabel_34.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_34.TextSize = 20.000
+
+TextLabel_35.Parent = TextLabel_28
+TextLabel_35.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_35.BackgroundTransparency = 1.000
+TextLabel_35.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_35.Position = UDim2.new(0.158610404, 0, 12.4800014, 0)
+TextLabel_35.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_35.Font = Enum.Font.Cartoon
+TextLabel_35.Text = "G - Stw Dash"
+TextLabel_35.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_35.TextSize = 20.000
+
+TextLabel_36.Parent = TextLabel_28
+TextLabel_36.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_36.BackgroundTransparency = 1.000
+TextLabel_36.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_36.Position = UDim2.new(0.158610404, 0, 14.2000017, 0)
+TextLabel_36.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_36.Font = Enum.Font.Cartoon
+TextLabel_36.Text = "4 - Nuke , Kills everyone on the server"
+TextLabel_36.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_36.TextSize = 20.000
+
+TextLabel_37.Parent = TextLabel_28
+TextLabel_37.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_37.BackgroundTransparency = 1.000
+TextLabel_37.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_37.Position = UDim2.new(0.158610404, 0, 15.8400021, 0)
+TextLabel_37.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_37.Font = Enum.Font.Cartoon
+TextLabel_37.Text = "H - Counter that erases enemy"
+TextLabel_37.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_37.TextSize = 20.000
+
+TextLabel_38.Parent = TextLabel_28
+TextLabel_38.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_38.BackgroundTransparency = 1.000
+TextLabel_38.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_38.Position = UDim2.new(0.158610404, 0, 17.6000023, 0)
+TextLabel_38.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_38.Font = Enum.Font.Cartoon
+TextLabel_38.Text = "Mode 4 Moves:"
+TextLabel_38.TextColor3 = Color3.fromRGB(36, 255, 21)
+TextLabel_38.TextSize = 20.000
+
+TextLabel_39.Parent = TextLabel_28
+TextLabel_39.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_39.BackgroundTransparency = 1.000
+TextLabel_39.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_39.Position = UDim2.new(0.158610404, 0, 20.9200001, 0)
+TextLabel_39.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_39.Font = Enum.Font.Cartoon
+TextLabel_39.Text = "R - Strong Punch"
+TextLabel_39.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_39.TextSize = 20.000
+
+TextLabel_40.Parent = TextLabel_28
+TextLabel_40.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_40.BackgroundTransparency = 1.000
+TextLabel_40.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_40.Position = UDim2.new(0.158610404, 0, 22.5600014, 0)
+TextLabel_40.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_40.Font = Enum.Font.Cartoon
+TextLabel_40.Text = "T - Omt buffed scream (cancels ts,ta,te,gi)"
+TextLabel_40.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_40.TextSize = 20.000
+
+TextLabel_41.Parent = TextLabel_28
+TextLabel_41.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_41.BackgroundTransparency = 1.000
+TextLabel_41.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_41.Position = UDim2.new(0.155711859, 0, 24.2000008, 0)
+TextLabel_41.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_41.Font = Enum.Font.Cartoon
+TextLabel_41.Text = "F - Uppercut/kick combo"
+TextLabel_41.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_41.TextSize = 20.000
+
+TextLabel_42.Parent = TextLabel_28
+TextLabel_42.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_42.BackgroundTransparency = 1.000
+TextLabel_42.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_42.Position = UDim2.new(0.158610404, 0, 25.8400002, 0)
+TextLabel_42.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_42.Font = Enum.Font.Cartoon
+TextLabel_42.Text = "G - Gun."
+TextLabel_42.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_42.TextSize = 20.000
+
+TextLabel_43.Parent = TextLabel_28
+TextLabel_43.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_43.BackgroundTransparency = 1.000
+TextLabel_43.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_43.Position = UDim2.new(0.158610404, 0, 27.5199986, 0)
+TextLabel_43.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_43.Font = Enum.Font.Cartoon
+TextLabel_43.Text = "H - A really strong punch"
+TextLabel_43.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_43.TextSize = 20.000
+
+TextLabel_44.Parent = TextLabel_28
+TextLabel_44.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_44.BackgroundTransparency = 1.000
+TextLabel_44.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_44.Position = UDim2.new(0.155711859, 0, 29.1599979, 0)
+TextLabel_44.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_44.Font = Enum.Font.Cartoon
+TextLabel_44.Text = "7 - Blackhole"
+TextLabel_44.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_44.TextSize = 20.000
+
+PageCounter_2.Name = "Page Counter"
+PageCounter_2.Parent = TextLabel_28
+PageCounter_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PageCounter_2.BackgroundTransparency = 1.000
+PageCounter_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PageCounter_2.Position = UDim2.new(0.428175598, 0, 39.6399956, 0)
+PageCounter_2.Size = UDim2.new(0, 48, 0, 41)
+PageCounter_2.Font = Enum.Font.Cartoon
+PageCounter_2.Text = "2"
+PageCounter_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+PageCounter_2.TextSize = 20.000
+
+TextButton_4.Parent = PageCounter_2
+TextButton_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_4.BackgroundTransparency = 1.000
+TextButton_4.Position = UDim2.new(-0.926247001, 0, -0.0219838023, 0)
+TextButton_4.Size = UDim2.new(0, 44, 0, 40)
+TextButton_4.Font = Enum.Font.Cartoon
+TextButton_4.Text = "<"
+TextButton_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_4.TextSize = 30.000
+
+TextLabel_45.Parent = TextLabel_28
+TextLabel_45.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_45.BackgroundTransparency = 1.000
+TextLabel_45.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_45.Position = UDim2.new(0.155711859, 0, 30.7999992, 0)
+TextLabel_45.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_45.Font = Enum.Font.Cartoon
+TextLabel_45.Text = "Passives: "
+TextLabel_45.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_45.TextSize = 20.000
+
+TextLabel_46.Parent = TextLabel_28
+TextLabel_46.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_46.BackgroundTransparency = 1.000
+TextLabel_46.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_46.Position = UDim2.new(0.176001713, 0, 32.8799973, 0)
+TextLabel_46.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_46.Font = Enum.Font.Cartoon
+TextLabel_46.Text = "Godmode, Auto rtz for 1 and 3 modes,"
+TextLabel_46.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_46.TextSize = 20.000
+
+TextLabel_47.Parent = TextLabel_28
+TextLabel_47.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_47.BackgroundTransparency = 1.000
+TextLabel_47.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_47.Position = UDim2.new(0.158610404, 0, 34.5200005, 0)
+TextLabel_47.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_47.Font = Enum.Font.Cartoon
+TextLabel_47.Text = "Trail for 2 and 4 modes."
+TextLabel_47.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_47.TextSize = 20.000
+
+TextLabel_48.Parent = TextLabel_28
+TextLabel_48.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_48.BackgroundTransparency = 1.000
+TextLabel_48.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_48.Position = UDim2.new(0.155711859, 0, 37.1199989, 0)
+TextLabel_48.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_48.Font = Enum.Font.Cartoon
+TextLabel_48.Text = "This is almost all the moves."
+TextLabel_48.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_48.TextSize = 20.000
+
+TextLabel_49.Parent = TextLabel_28
+TextLabel_49.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_49.BackgroundTransparency = 1.000
+TextLabel_49.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_49.Position = UDim2.new(0.155711859, 0, 19.2400017, 0)
+TextLabel_49.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_49.Font = Enum.Font.Cartoon
+TextLabel_49.Text = "E - Barrage"
+TextLabel_49.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_49.TextSize = 20.000
+
+TextLabel_50.Parent = TextLabel_28
+TextLabel_50.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_50.BackgroundTransparency = 1.000
+TextLabel_50.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_50.Position = UDim2.new(0.158610404, 0, 2.60000038, 0)
+TextLabel_50.Size = UDim2.new(0, 235, 0, 41)
+TextLabel_50.Font = Enum.Font.Cartoon
+TextLabel_50.Text = "Mode 3 Moves:"
+TextLabel_50.TextColor3 = Color3.fromRGB(36, 255, 21)
+TextLabel_50.TextSize = 20.000
+
+Open.Name = "Open"
+Open.Parent = SettingsGui
+Open.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+Open.BackgroundTransparency = 0.300
+Open.Position = UDim2.new(0.985818505, 0, 0.461236268, 0)
+Open.Size = UDim2.new(0, 54, 0, 64)
+Open.Font = Enum.Font.Cartoon
+Open.Text = ""
+Open.TextColor3 = Color3.fromRGB(0, 0, 0)
+Open.TextSize = 16.000
 
 -- Scripts:
 
-local function EXDB_fake_script() -- auraleg.auraLegScript 
-	local script = Instance.new('LocalScript', auraleg)
+local function TSQRV_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
 
 	script.Parent.MouseButton1Click:Connect(function()
 		if auractiveleg == false then
@@ -4428,10 +5087,11 @@ local function EXDB_fake_script() -- auraleg.auraLegScript
 			auractiveleg = false
 		end
 	end)
+	
 end
-coroutine.wrap(EXDB_fake_script)()
-local function TJCTHLN_fake_script() -- auraHead.auraHeadScript 
-	local script = Instance.new('LocalScript', auraHead)
+coroutine.wrap(TSQRV_fake_script)()
+local function JUVJCJY_fake_script() -- TextButton_2.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_2)
 
 	script.Parent.MouseButton1Click:Connect(function()
 		if auractivehead == false then
@@ -4441,31 +5101,64 @@ local function TJCTHLN_fake_script() -- auraHead.auraHeadScript
 		end
 	end)
 end
-coroutine.wrap(TJCTHLN_fake_script)()
-local function GVYFYTB_fake_script() -- OpenButton.openbuttonscript 
-	local script = Instance.new('LocalScript', OpenButton)
+coroutine.wrap(JUVJCJY_fake_script)()
+local function OWJQ_fake_script() -- TextButton_3.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_3)
 
-	local frame = script.Parent.Parent["SHG:Frame"]
+	script.Parent.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.Parent.Parent.Parent.moves2.Visible == false and script.Parent.Parent.Parent.Parent.Parent.moves2.Active == false then
+			script.Parent.Parent.Parent.Parent.Parent.moves1.Visible = false
+			script.Parent.Parent.Parent.Parent.Parent.moves1.Active = false
+			script.Parent.Parent.Parent.Parent.Parent.moves2.Visible = true
+			script.Parent.Parent.Parent.Parent.Parent.moves2.Active = true
+		end
+	end)
+	
+end
+coroutine.wrap(OWJQ_fake_script)()
+local function BIANG_fake_script() -- TextButton_4.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_4)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.Parent.Parent.Parent.moves1.Visible == false and script.Parent.Parent.Parent.Parent.Parent.moves1.Active == false then
+			script.Parent.Parent.Parent.Parent.Parent.moves1.Visible = true
+			script.Parent.Parent.Parent.Parent.Parent.moves1.Active = true
+			script.Parent.Parent.Parent.Parent.Parent.moves2.Visible = false
+			script.Parent.Parent.Parent.Parent.Parent.moves2.Active = false
+		end
+	end)
+	
+end
+coroutine.wrap(BIANG_fake_script)()
+local function PBOSZL_fake_script() -- Open.LocalScript 
+	local script = Instance.new('LocalScript', Open)
+
+	local frame = script.Parent.Parent["Settings"]
+	
+	local frame2 = frame:FindFirstChild("Moveset")
+	
 	
 	script.Parent.MouseButton1Click:Connect(function()
-		if frame.Visible == false then
+		if frame.Visible == false and frame2.Enabled == false then
 			frame.Visible = true
+			frame2.Enabled = true
 		else
 			frame.Visible = false
+			frame2.Enabled = false
 		end
 	end)
 end
-coroutine.wrap(GVYFYTB_fake_script)()
-local function DIZZRAM_fake_script() -- SHGGui.GuiDestroy 
-	local script = Instance.new('LocalScript', SHGGui)
+coroutine.wrap(PBOSZL_fake_script)()
+local function DJRREUU_fake_script() -- SettingsGui.GuiDestroy 
+	local script = Instance.new('LocalScript', SettingsGui)
 
-	game.Players.LocalPlayer.Character.Humanoid.HealthChanged:connect(function()
-		if game.Players.LocalPlayer.Character.Humanoid.Health < 1 then
+	human.HealthChanged:connect(function()
+		if human.Health < 1 then
 			script.Parent:Destroy()
 		end
 	end)
 end
-coroutine.wrap(DIZZRAM_fake_script)()
+coroutine.wrap(DJRREUU_fake_script)()
 
 local GUIConnections = {}
 
