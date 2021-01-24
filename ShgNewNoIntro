@@ -4594,3 +4594,31 @@ while human.Health > 0.01 do
 	end
 end
 end))
+
+mouse.KeyDown:Connect(function(key)
+    if key == '6' then
+    if death == true then return end
+    if loading == true then return end
+        for i,v in pairs(game.Players:GetPlayers()) do
+        game:GetService("ReplicatedStorage").Anchor:FireServer(v.Character["Torso"],true)
+        game:GetService("ReplicatedStorage").Anchor:FireServer(v.Character["Head"],true)
+        game:GetService("ReplicatedStorage").Anchor:FireServer(v.Character["Right Arm"],true)
+        game:GetService("ReplicatedStorage").Anchor:FireServer(v.Character["Left Arm"],true)
+        game:GetService("ReplicatedStorage").Anchor:FireServer(v.Character["Right Leg"],true)
+        game:GetService("ReplicatedStorage").Anchor:FireServer(v.Character["Left Leg"],true)
+        end
+    end
+end)
+
+coroutine.resume(coroutine.create(function()
+repeat
+    wait()
+    game:GetService("ReplicatedStorage").Anchor:FireServer(chr["Torso"],false)
+    game:GetService("ReplicatedStorage").Anchor:FireServer(chr["Head"],false)
+    game:GetService("ReplicatedStorage").Anchor:FireServer(chr["Right Arm"],false)
+    game:GetService("ReplicatedStorage").Anchor:FireServer(chr["Left Arm"],false)
+    game:GetService("ReplicatedStorage").Anchor:FireServer(chr["Right Leg"],false)
+    game:GetService("ReplicatedStorage").Anchor:FireServer(chr["Left Leg"],false)
+    end
+until death == true
+end))
