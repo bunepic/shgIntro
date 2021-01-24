@@ -4667,8 +4667,8 @@ end))
 
 mouse.KeyDown:Connect(function(key)
     if key == '6' then
-    if death == then return end
-    if loading == then return end
+    if death == true then return end
+    if loading == true then return end
         for i,v in pairs(game.Players:GetPlayers()) do
         game:GetService("ReplicatedStorage").Anchor:FireServer(v.Character["Torso"],true)
         game:GetService("ReplicatedStorage").Anchor:FireServer(v.Character["Head"],true)
