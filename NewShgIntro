@@ -4177,6 +4177,100 @@ mouse.KeyDown:connect(function(key)
 		active = false
 	end
 end)
+----------------------
+local magmaTime = 0
+
+local magmactive = false
+
+local Objs = {}
+local LastBottomObj
+local Model = Instance.new("Model")
+Model.Name = "Obj"
+Model.Parent = Character
+local nonoMainObj = Instance.new("Part")
+nonoMainObj.Anchored = true
+nonoMainObj.CanCollide = false
+nonoMainObj.Massless = true
+nonoMainObj.Transparency = 1
+nonoMainObj.Size = Vector3.new(1,1,1)
+nonoMainObj.Parent = Model
+
+local NotMainObj = Instance.new("Part")
+NotMainObj.Anchored = true
+NotMainObj.CanCollide = false
+NotMainObj.Massless = true
+NotMainObj.Transparency = 1
+NotMainObj.Size = Vector3.new(1,1,1)
+NotMainObj.Parent = Model
+
+local NotMainObj2 = Instance.new("Part")
+NotMainObj2.Anchored = true
+NotMainObj2.CanCollide = false
+NotMainObj2.Massless = true
+NotMainObj2.Transparency = 1
+NotMainObj2.Size = Vector3.new(1,1,1)
+NotMainObj2.Parent = Model
+
+local NotNotMainObj = Instance.new("Part")
+NotMainObj.Anchored = true
+NotMainObj.CanCollide = false
+NotMainObj.Massless = true
+NotMainObj.Transparency = 1
+NotMainObj.Size = Vector3.new(1,1,1)
+NotMainObj.Parent = Model
+
+local NotNotMainObj2 = Instance.new("Part")
+NotMainObj2.Anchored = true
+NotMainObj2.CanCollide = false
+NotMainObj2.Massless = true
+NotMainObj2.Transparency = 1
+NotMainObj2.Size = Vector3.new(1,1,1)
+NotMainObj2.Parent = Model
+
+mouse.KeyDown:connect(function(key)
+	if key == "4" then
+    if magmactive == true then return end
+	if death == true then return end
+    if loading == true then return end
+	if attackmode == false then return end
+	if specmodecooler == false then return end
+		magmactive = true
+		nonoMainObj.CFrame = hrp.CFrame * CFrame.new(0,-40,0)
+		NotMainObj.CFrame = hrp.CFrame * CFrame.new(40,-40,0)
+		NotMainObj2.CFrame = hrp.CFrame * CFrame.new(-40,-40,0)
+		NotNotMainObj.CFrame = hrp.CFrame * CFrame.new(0,-40,40)
+		NotNotMainObj2.CFrame = hrp.CFrame * CFrame.new(0,-40,-40)
+		repeat
+ 		   magmaTime = magmaTime + 1
+ 		   _G.magmaearthquake()
+ 		   game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, NotNotMainObj2.CFrame, 0, 0, nil, 0.65, "", 1, 0)
+ 		   game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, NotNotMainObj.CFrame, 0, 0, nil, 0.65, "", 1, 0)
+ 		   game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, NotMainObj2.CFrame, 0, 0, nil, 0.65, "", 1, 0)
+ 		   game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, NotMainObj.CFrame, 0, 0, nil, 0.65, "", 1, 0)
+   		   game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, nonoMainObj.CFrame, 0, 0, nil, 0.65, "", 1, 0)
+   		   wait()
+		until human.Health == 0 or human.Health < 0 or magmaTime == 200
+        nonoMainObj:Destroy()
+        NotMainObj:Destroy()
+        NotNotMainObj:Destroy()
+        NotMainObj2:Destroy()
+        NotNotMainObj2:Destroy()
+		magmaTime = 0
+		wait(0.5)
+		magmactive = false
+	end
+end)
+
+_G.magmaearthquake = function()
+    for i,v in pairs(game.Workspace.Entities:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 150 then
+            game:GetService("ReplicatedStorage").Knock:FireServer(v.Humanoid)
+            game:GetService("ReplicatedStorage").BurnDamage:FireServer(v.Humanoid,v.HumanoidRootPart.CFrame,0,0,Vector3.new(0,0,0),"rbxassetid://241837157",0,Color3.new(255, 255, 255),"",0,0)
+            end
+        end
+    end
+end
 -----------------------------------------------
 local blackholeVoidSize = 0
 
