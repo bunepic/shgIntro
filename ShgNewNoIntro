@@ -378,6 +378,7 @@ mouse.KeyDown:connect(function(key)
     if loading == true then return end
     if death == true then return end
     if standmodecooler == true then return end
+    if secretmodeon == true then return end
     if specmodecooler == true then return end
         game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
         switchmode()
@@ -438,6 +439,7 @@ end
 mouse.KeyDown:connect(function(key)
     if key == "-" then
     if loading == true then return end
+    if secretmodeon == true then return end
     if death == true then return end
     if specmodecooler == true then return end
         game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
@@ -460,6 +462,7 @@ mouse.KeyDown:connect(function(key)
     if key == "-" then
     if loading == true then return end
     if death == true then return end
+    if secretmodeon == true then return end
     if standmodecooler == true then return end
         game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
         switchmodethird()
