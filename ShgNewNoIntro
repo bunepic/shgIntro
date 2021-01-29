@@ -4647,7 +4647,7 @@ _G.kcauslidehitbox = function()
     weld.Part0 = hitbox1
     weld.Part1 = game.Players.LocalPlayer.Character["Torso"]
 
-    hitbox1.Size = game.Players.LocalPlayer.Character["Torso"].Size * 5
+    hitbox1.Size = game.Players.LocalPlayer.Character["Torso"].Size * 7.5
     hitbox1.Massless = true
     hitbox1.Color = Color3.new(255,255,255)
     game.Debris:AddItem(hitbox1, 0.001) -- destroy hitbox after .3 seconds (with no code yielding)
@@ -4713,7 +4713,7 @@ mouse.KeyDown:Connect(function(key)
         game:GetService("ReplicatedStorage").Damage12Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 100, 0, "", 1, 1)
         _G.anim38:Play()
         noantifling = false
-        wait(0.6)
+        wait(0.5)
         repeat
 		wait()
 		kcauslidecount = kcauslidecount + 1
