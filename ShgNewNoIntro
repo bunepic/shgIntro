@@ -4714,7 +4714,7 @@ mouse.KeyDown:Connect(function(key)
         _G.anim38:Play()
         noantifling = false
         wait(0.6)
-        repeat wait() kcauslidecount = kcauslidecount + 1 _G.kcauslidehitbox() until human:GetState(Enum.HumanoidStateType.Landed) or kcauslidecount == 45
+        repeat wait() kcauslidecount = kcauslidecount + 1 _G.kcauslidehitbox() game:GetService("ReplicatedStorage").VampireDash:FireServer(BrickColor.new("Black metallic")) until human:GetState(Enum.HumanoidStateType.Landed) or kcauslidecount == 45
         _G.anim38:Stop()
         kcauslidecount = 0
         wait(0.3)
