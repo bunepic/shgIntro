@@ -4721,7 +4721,9 @@ mouse.KeyDown:Connect(function(key)
 	until human:GetState(Enum.HumanoidStateType.Landed) or kcauslidecount == 45
         _G.anim38:Stop()
         kcauslidecount = 0
+	noantifling = false
         wait(0.3)
+	noantifling = false
         active = false
     end 
 end) 
