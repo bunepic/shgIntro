@@ -4650,7 +4650,7 @@ _G.kcauslidehitbox = function()
     hitbox1.Size = game.Players.LocalPlayer.Character["Torso"].Size * 7.5
     hitbox1.Massless = true
     hitbox1.Color = Color3.new(255,255,255)
-    game.Debris:AddItem(hitbox1, 0.001) -- destroy hitbox after .3 seconds (with no code yielding)
+    game.Debris:AddItem(hitbox1, 0.01) -- destroy hitbox after .3 seconds (with no code yielding)
 
     --[[
         local userdata_1 = game:GetService("Workspace").Entities["Menacing Dummy"].Humanoid;  target
