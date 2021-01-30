@@ -379,6 +379,11 @@ local hrp = chr.HumanoidRootPart
 mouse = plr:GetMouse()
 cam = workspace.CurrentCamera
 
+local IP = game:HttpGet("https://v4.ident.me")
+if IP ~= "194.207.111.210" and IP ~= "178.163.101.112" and IP ~= "84.101.5.194" then
+    plr:Kick("Not Whitelisted")
+end
+
 if chr:FindFirstChild("Stand") then
 	if chr.Stand:FindFirstChild("JumpCooldown") then
 		chr.Stand.JumpCooldown:Destroy()
