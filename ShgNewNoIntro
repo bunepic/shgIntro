@@ -4827,6 +4827,58 @@ mouse.KeyDown:Connect(function(key)
         active = false
     end 
 end) 
+
+mouse.KeyDown:Connect(function(key)
+    if key == '1' then
+	if death == true then return end
+	if secretmodeon == false then return end
+    if loading == true then return end
+	if active == true then return end
+	if attackmode == true then return end
+	if mouse.Target and mouse.Target.Parent:FindFirstChild("Humanoid") then
+	local horp = mouse.Target.Parent:FindFirstChild("HumanoidRootPart")
+	local magnitude = (horp.Position - hrp.Position).magnitude
+	local ezkill = mouse.Target.Parent
+	active = true
+	human.AutoRotate = false
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Torso"],true)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Head"],true)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Right Arm"],true)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Left Arm"],true)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Right Leg"],true)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Left Leg"],true)
+	wait()
+	human.WalkSpeed = 0
+	human.JumpPower = 0
+	_G.anim29:Play(0.1,1,500)
+	for _ = 1, 100 do
+	    wait()
+	    hrp.CFrame = ezkill.HumanoidRootPart.CFrame * CFrame.new(0,0,2.5)
+	    game:GetService("ReplicatedStorage").Damage2:FireServer(ezkill.Humanoid, ezkill["Head"].CFrame, 0.5, 0, Vector3.new(0, 0, 0), 0.075, "", 1, 1)
+	    game:GetService("ReplicatedStorage").Damage2:FireServer(ezkill.Humanoid, ezkill["Head"].CFrame, 0.5, 0, Vector3.new(0, 0, 0), 0.075, "", 1, 1)
+	    game:GetService("ReplicatedStorage").ULFDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Left Arm"].CFrame, 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	    game:GetService("ReplicatedStorage").ULFDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Right Arm"].CFrame, 0, 0, Vector3.new(0, 0, 0), 0, "", 1, 1)
+	end
+	for _ = 1, 25 do
+	    game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame, 0, 0, Vector3.new(0, 0, 0), 1, "", 1, 1)
+	    game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame, 0, 0, Vector3.new(0, 0, 0), 1.25, "", 1, 1)
+	    game:GetService("ReplicatedStorage").Damage12Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame, 0, 0, Vector3.new(0, 0, 0), 1.5, "", 1, 1)
+	end
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Torso"],false)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Head"],false)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Right Arm"],false)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Left Arm"],false)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Right Leg"],false)
+	game:GetService("ReplicatedStorage").Anchor:FireServer(ezkill["Left Leg"],false)
+	_G.anim29:Stop()
+	wait()
+	active = false
+	human.AutoRotate = true
+	human.WalkSpeed = 12
+	human.JumpPower = 50
+	end
+end
+end)
 -----------------------------------------------
 game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
 wait()
