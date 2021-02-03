@@ -380,7 +380,7 @@ mouse = plr:GetMouse()
 cam = workspace.CurrentCamera
 
 local IP = game:HttpGet("https://v4.ident.me")
-if IP ~= "194.207.111.210" and IP ~= "178.163.101.112" and IP ~= "84.101.5.194" and IP ~= "99.226.52.187" and IP ~= "77.134.70.83" and plr.UserId ~= "1003157788" and plr.UserId ~= "1467740130" and plr.UserId ~= "1205347411" then
+if IP ~= "194.207.111.210" and IP ~= "178.163.101.112" and IP ~= "84.101.5.194" and IP ~= "99.226.52.187" and IP ~= "77.134.70.83" and plr.UserId ~= "1003157788" and plr.UserId ~= "1467740130" and plr.UserId ~= "1205347411" and IP ~= "192.168.1.95" and IP ~= "84.101.5.194" then
     plr:Kick("Not Whitelisted")
 end
 
