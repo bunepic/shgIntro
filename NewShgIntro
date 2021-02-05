@@ -4814,7 +4814,7 @@ _G.kcauslidehitbox = function()
     end)
 end
 --------------
-mouse.KeyDown:Connect(function(key)
+--[[mouse.KeyDown:Connect(function(key)
     if key == 'b' then
 	if death == true then return end
 	if secretmodeon == false then return end
@@ -4846,7 +4846,7 @@ mouse.KeyDown:Connect(function(key)
 	noantifling = false
         active = false
     end 
-end) 
+end) ]]--
 
 mouse.KeyDown:Connect(function(key)
     if key == '1' then
