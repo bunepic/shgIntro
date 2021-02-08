@@ -125,12 +125,6 @@ local r = "boom"
 local g = "molotov"
 local e = "volley"
 local c = "rope"
-local hidden = CFrame.new(-6551.14746, 419.935547, -178.968475, 0.339421868, 2.31603678e-08, -0.940634251, -8.20526864e-08, 1, -4.98611286e-09, 0.940634251, 7.8873974e-08, 0.339421868)
-local healing = 50
-local asset = "rbxassetid://3057029635"
-local what = 2.2
-local what1 = 0.18
-local Event = game:GetService("ReplicatedStorage").Heal3
 local karsevent1 = game:GetService("ReplicatedStorage").KarsSlash --:FireServer()
 local doppioslam = game:GetService("ReplicatedStorage").DoppioSlam --:FireServer()
 local mih1 = "MIHKnife"
@@ -5095,6 +5089,137 @@ mouse.KeyDown:Connect(function(key)
 		wait(0.35)
 		active = false
 	end
+end)
+
+local Objs = {}
+local LastBottomObj
+local Model = Instance.new("Model")
+Model.Name = "Obj"
+Model.Parent = chr
+
+_G.shgtoss = function() 
+
+    Model.Parent = chr
+
+    local knife = Instance.new("Part")
+    knife.Anchored = false
+    knife.CanCollide = false
+    knife.Massless = true
+    knife.Transparency = 1
+    knife.Size = Vector3.new(15,15,15)
+    knife.CFrame = hrp.CFrame * CFrame.new(0,0,0)
+    knife.Parent = Model
+
+    local boopyve = Instance.new("BodyVelocity")
+    boopyve.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+    boopyve.P = math.huge
+    boopyve.Velocity = knife.CFrame.lookVector * 50
+    boopyve.Parent = knife
+    boopyve.Name = "Force"
+
+    coroutine.resume(coroutine.create(function()
+    game.Debris:AddItem(knife, 5)
+    wait(5)
+    knife:Destroy()
+    Model.Parent = game.Workspace
+    end))
+
+    coroutine.resume(coroutine.create(function()
+        local ProjectileAuraSetter = 0
+        game:GetService("ReplicatedStorage").RTZ:FireServer(false)
+        repeat
+        wait()
+            ProjectileAuraSetter = ProjectileAuraSetter + 1
+            game.ReplicatedStorage.Damage11Enderman:FireServer(human, knife.CFrame * CFrame.new(math.sin(ProjectileAuraSetter * 120)*1.125, math.cos(ProjectileAuraSetter * 50)*1.125, math.sin(ProjectileAuraSetter * 75)*1.125) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            game.ReplicatedStorage.Damage11:FireServer(human, knife.CFrame * CFrame.new(math.sin(ProjectileAuraSetter * 120)*-1.125, math.cos(ProjectileAuraSetter * 50)*-1.125, math.sin(ProjectileAuraSetter * 75)*-1.125) , 0, 0, nil, 0, "rbxassetid://2835079178", 1, 0)
+            game.ReplicatedStorage.Damage:FireServer(human, knife.CFrame * CFrame.new(0,0,-10), 1, 0,Vector3.new(0, 0, 0), "rbxassetid://241837157", 1, Color3.new(0, 255, 0), "rbxassetid://367499850", 0, 0)
+        until Model.Parent ~= chr
+        game:GetService("ReplicatedStorage").RTZ:FireServer(true)
+    end))
+
+    local debounce = false
+    
+    -- deal damage if arm hits a humanoid
+    local hitRegister = knife.Touched:Connect(function(hit)
+        if hit.Parent:FindFirstChild("Humanoid") and hit.Parent ~= chr then
+                if debounce == false then
+                debounce = true
+                delay(.01, function() debounce = false end)
+            game.ReplicatedStorage.Berserk:FireServer(hit.Parent.Humanoid)
+            game.ReplicatedStorage.Knock:FireServer(hit.Parent.Humanoid)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            knife:Destroy()
+            Model.Parent = game.Workspace
+            end
+        elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent ~= chr then
+                if debounce == false then
+                debounce = true
+                delay(.01, function() debounce = false end)
+            game.ReplicatedStorage.Berserk:FireServer(hit.Parent.Humanoid)
+            game.ReplicatedStorage.Knock:FireServer(hit.Parent.Humanoid)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            game:GetService("ReplicatedStorage").ULFDamage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 5, 0, Vector3.new(0, 0, 0), .05, "", 1, 1)
+            knife:Destroy()
+            Model.Parent = game.Workspace
+            end
+        end
+    end)
+end
+
+local tossactive = false
+mouse.KeyDown:Connect(function(key)
+    if key == 'h' then
+	if death == true then return end
+	if secretmodeon == false then return end
+    if loading == true then return end
+	if active == true then return end
+	if attackmode == true then return end
+	if tossactive == true then return end
+        tossactive = true
+        trans0()
+        game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
+        _G.anim1:Play()
+        wait(0.1)
+        game:GetService("ReplicatedStorage").ParticleEvent:FireServer("noaura")
+        wait(0.4)
+        _G.shgtoss()
+        wait(0.2)
+        trans1()
+        repeat wait() until Model.Parent == game.Workspace
+        wait(2.5)
+        tossactive = false
+    end
 end)
 -----------------------------------------------
 local lecount = 0
