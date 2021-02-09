@@ -6299,3 +6299,9 @@ while death ~= true do
     game:GetService("ReplicatedStorage").Anchor:FireServer(chr["Left Leg"],false)
 end
 end))
+
+game:GetService("ReplicatedStorage").BerserkClient.OnClientEvent:connect(function()
+    wait()
+    game.Lighting.Ambient = Color3.fromRGB(150, 150, 150)
+    game.Lighting.Berserk.Enabled = false
+end)
