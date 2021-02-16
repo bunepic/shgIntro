@@ -5271,12 +5271,13 @@ local IntroFlashesIndexer = 1
 
 repeat
     wait()
+    print("bruh")
     game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(10000, 5000000, 500), Vector3.new(0,0,0), BrickColor.new(IntroFlashes[IntroFlashesIndexer]))
     if IntroFlashesIndexer == #IntroFlashes then
         IntroFlashesIndexer = 0
     end
     IntroFlashesIndexer = IntroFlashesIndexer + 1
-until loading == false
+until loading == false or death == true
 end))
 wait(0.5)
 	repeat
