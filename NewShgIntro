@@ -5246,6 +5246,38 @@ _G.anim11:Play(0.1,1,0.5)
 		game:GetService("ReplicatedStorage").Damage12Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.Torso.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.008, "", 1, 1)
 	until lecount == 100
 lecount = 0
+coroutine.resume(coroutine.create(function()
+local IntroFlashes = { 
+    "Light green (Mint)", 
+    "Dark green",
+    "Medium green",
+    "Bright green",
+    "Tr. Green",
+    "Med. yellowish green",
+    "Br. yellowish green",
+    "Neon green",
+    "Faded green",
+    "Parsley green",
+    "Sea green",
+    "Slime green",
+    "Shamrock",
+    "Forest green",
+    "Olivine",
+    "Lime green",
+    "Camo"
+} 
+
+local IntroFlashesIndexer = 1
+
+repeat
+    wait()
+    game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(10000, 5000000, 500), Vector3.new(0,0,0), BrickColor.new(IntroFlashes[IntroFlashesIndexer]))
+    if IntroFlashesIndexer == #IntroFlashes then
+        IntroFlashesIndexer = 0
+    end
+    IntroFlashesIndexer = IntroFlashesIndexer + 1
+until human.Health < 0.001
+end))
 wait(0.5)
 	repeat
 		lecount = lecount + 1
