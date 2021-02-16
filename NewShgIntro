@@ -5276,7 +5276,7 @@ repeat
         IntroFlashesIndexer = 0
     end
     IntroFlashesIndexer = IntroFlashesIndexer + 1
-until human.Health < 0.001
+until loading == false
 end))
 wait(0.5)
 	repeat
