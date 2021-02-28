@@ -184,3 +184,17 @@ window1:Toggle("Toggle no cooldown", false, function(bool)
         nocdactive = false
     end
 end)
+-----------TP items
+local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath", "HolyDiary", "bol"}, function(buttonpress)
+   if buttonpress == "Arrow" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Arrow").Handle.CFrame
+   elseif buttonpress == "Banknote" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Money").Handle.CFrame
+   elseif buttonpress == "SamuraiPath" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Samurai Path").Handle.CFrame
+   elseif buttonpress == "HolyDiary" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Holy Diary").Handle.CFrame
+   elseif buttonpress == "bol" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("bol").Handle.CFrame
+   end
+end)
