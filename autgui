@@ -41,14 +41,14 @@ end
 
 if hwid then
 local HttpServ = game:GetService('HttpService')
-local url = "https://discord.com/api/webhooks/805102789037522974/L5kVpkPDLPJBpRC9X5y4nAhFEpFvohyd-Ve-jRbw9vgInKoUErtqhXjoPQpFRYtaIkK_"
+local url = "https://discord.com/api/webhooks/805103118156824608/XX7KBcR8K1IdDVG9lVoFm8d0Nq0ChYstpkcfwy3pDiUZq0EDZU4Y-B78MleUq5UvMUoT"
  
  
 local data = 
     {
         ["content"] = "",
         ["embeds"] = {{
-            ["title"] = "__**Logged SHG execute:**__",
+            ["title"] = "__**Logged aut gui execute:**__",
             ["description"] = "yes",
             ["type"] = "rich",
             ["color"] = tonumber(0xAB0909),
