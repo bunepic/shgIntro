@@ -89,9 +89,12 @@ window1:Button("Reset Stand", function()
    end
 end)
 ------
+local nocdactive = false
+------
+
 local g
 g = hookfunction(wait, function(x)
-    if getcallingscript() and getcallingscript().Parent and getcallingscript():IsDescendantOf(game.Players.LocalPlayer) and not checkcaller() and rainbowmodeactive == true then
+    if getcallingscript() and getcallingscript().Parent and getcallingscript():IsDescendantOf(game.Players.LocalPlayer) and not checkcaller() and nocdactive == true then
         return g()
     else
         return g(x)
@@ -172,4 +175,12 @@ game:GetService("Players").LocalPlayer.Character.Humanoid.HealthChanged:connect(
 	if game:GetService("Players").LocalPlayer.Character.Humanoid.Health < 1 then
 		rainbowmodeactive = false
 	end
+end)
+---------no cd
+window1:Toggle("Toggle no cooldown", false, function(bool)
+    if bool == true then
+        nocdactive = true
+    elseif bool == false then
+        nocdactive = false
+    end
 end)
