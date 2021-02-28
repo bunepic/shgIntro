@@ -1,4 +1,4 @@
-plr = game.Players.LocalPlayer
+plr = game:GetService'Players'.LocalPlayer
 local premium = false
 local ALT = false
 if plr.MembershipType == Enum.MembershipType.Premium then
