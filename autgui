@@ -132,6 +132,7 @@ library:Keybind("P")
 
 local speedchanged = false
 local jumpchanged = false
+local disabletrail = false
 
 window1:Toggle("Toggle rainbow mode", false, function(bool)
     if bool == true and speedchanged ~= true and speedchanged == false and jumpchanged == false then
@@ -206,7 +207,7 @@ end))
 coroutine.resume(coroutine.create(function()
 local Indexer = 1
 repeat
-	repeat wait(0.035) until rainbowmodeactive == true
+	repeat wait(0.035) until rainbowmodeactive == true and disabletrail == false
     game:GetService("ReplicatedStorage").Jump:FireServer(BrickColor.new(Rainbow[Indexer]))
 	game:GetService("ReplicatedStorage").ReversedJump:FireServer(BrickColor.new(Rainbow[Indexer]))
 	if Indexer == #Rainbow then
@@ -322,4 +323,12 @@ game:GetService("Players").LocalPlayer:GetMouse().KeyDown:connect(function(key)
     end
 end
 end
+end)
+-------------toggle rainbow trail
+window1:Toggle("Toggle rainbow trail", false, function(bool)
+    if bool == true then
+        disabletrail = true
+    elseif bool == false then
+        disabletrail = false
+    end
 end)
