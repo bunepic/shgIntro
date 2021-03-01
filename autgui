@@ -293,3 +293,15 @@ local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("bol").Handle.CFrame
    end
 end)
+---------------rainbow mode donut
+game:GetService("Players").LocalPlayer:GetMouse().KeyDown:connect(function(key)
+    if key == "b" then
+    if death == false and rainbowmodeactive == true then
+    if game:GetService("Players").LocalPlayer:GetMouse().Target and game:GetService("Players").LocalPlayer:GetMouse().Target.Parent:FindFirstChild("Humanoid") then
+        game:GetService("ReplicatedStorage").Donut:FireServer(game:GetService("Players").LocalPlayer:GetMouse().Target.Parent, 70)
+        game:GetService("ReplicatedStorage").Donut:FireServer(game:GetService("Players").LocalPlayer:GetMouse().Target.Parent, 70)
+        game:GetService("ReplicatedStorage").Donut:FireServer(game:GetService("Players").LocalPlayer:GetMouse().Target.Parent, 70)
+    end
+end
+end
+end)
