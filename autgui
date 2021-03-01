@@ -280,7 +280,7 @@ window1:Toggle("Toggle no cooldown", false, function(bool)
     end
 end)
 -----------TP items
-local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath", "HolyDiary", "bol", "VampireMask", "DankDiary", "DIO'sDiary", "RequiemArrow"}, function(buttonpress)
+local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath", "HolyDiary", "bol", "VampireMask", "DankDiary", "DIO'sDiary", "RequiemArrow", "Camera", "UniverseOrb", "StarGem"}, function(buttonpress)
    if buttonpress == "Arrow" then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Arrow").Handle.CFrame
    elseif buttonpress == "Banknote" then
@@ -299,6 +299,12 @@ local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("DIO's Diary").Handle.CFrame
    elseif buttonpress == "RequiemArrow" then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Requiem Arrow").Handle.CFrame
+   elseif buttonpress == "UniverseOrb" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Universe Orb").Handle.CFrame
+   elseif buttonpress == "Camera" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Camera").Handle.CFrame
+   elseif buttonpress == "StarGem" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("?").Handle.CFrame
    end
 end)
 ---------------rainbow mode donut
