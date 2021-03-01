@@ -280,7 +280,7 @@ window1:Toggle("Toggle no cooldown", false, function(bool)
     end
 end)
 -----------TP items
-local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath", "HolyDiary", "bol"}, function(buttonpress)
+local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath", "HolyDiary", "bol", "VampireMask", "DankDiary"}, function(buttonpress)
    if buttonpress == "Arrow" then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Arrow").Handle.CFrame
    elseif buttonpress == "Banknote" then
@@ -291,6 +291,10 @@ local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Holy Diary").Handle.CFrame
    elseif buttonpress == "bol" then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("bol").Handle.CFrame
+   elseif buttonpress == "bol" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Dank Diary").Handle.CFrame
+   elseif buttonpress == "bol" then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Vampire Mask").Handle.CFrame
    end
 end)
 ---------------rainbow mode donut
