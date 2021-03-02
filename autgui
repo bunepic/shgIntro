@@ -133,15 +133,16 @@ library:Keybind("P")
 local speedchanged = false
 local jumpchanged = false
 local disabletrail = false
+local bossautofarmactive = false
 
 window1:Toggle("Toggle rainbow mode", false, function(bool)
-    if bool == true and speedchanged ~= true and speedchanged == false and jumpchanged == false then
+    if bool == true and speedchanged ~= true and speedchanged == false and jumpchanged == false and bossautofarmactive == false then
         rainbowmodeactive = true
         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 75
         game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = 100
         game:GetService("ReplicatedStorage").Block:FireServer(true)
         game:GetService("ReplicatedStorage").RTZ:FireServer(true)
-    elseif bool == false and speedchanged ~= true and speedchanged == false and jumpchanged == false then
+    elseif bool == false and speedchanged ~= true and speedchanged == false and jumpchanged == false and bossautofarmactive == false then
         rainbowmodeactive = false
         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = defaultwalk
         game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = defaultjump
@@ -282,33 +283,33 @@ window1:Toggle("Toggle no cooldown", false, function(bool)
 end)
 -----------TP items
 local dropdown = window1:Dropdown("Items TP", {"Arrow", "Banknote", "SamuraiPath", "HolyDiary", "bol", "VampireMask", "DankDiary", "DIO'sDiary", "RequiemArrow", "Camera", "UniverseOrb", "StarGem", "Spin", "DeathNote"}, function(buttonpress)
-   if buttonpress == "Arrow" then
+   if buttonpress == "Arrow" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Arrow").Handle.CFrame
-   elseif buttonpress == "Banknote" then
+   elseif buttonpress == "Banknote" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Money").Handle.CFrame
-   elseif buttonpress == "SamuraiPath" then
+   elseif buttonpress == "SamuraiPath" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Samurai Path").Handle.CFrame
-   elseif buttonpress == "HolyDiary" then
+   elseif buttonpress == "HolyDiary" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Holy Diary").Handle.CFrame
-   elseif buttonpress == "bol" then
+   elseif buttonpress == "bol" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("bol").Handle.CFrame
-   elseif buttonpress == "DankDiary" then
+   elseif buttonpress == "DankDiary" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Dank Diary").Handle.CFrame
-   elseif buttonpress == "VampireMask" then
+   elseif buttonpress == "VampireMask" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Vampire Mask").Handle.CFrame
-   elseif buttonpress == "DIO'sDiary" then
+   elseif buttonpress == "DIO'sDiary" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("DIO's Diary").Handle.CFrame
-   elseif buttonpress == "RequiemArrow" then
+   elseif buttonpress == "RequiemArrow" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Requiem Arrow").Handle.CFrame
-   elseif buttonpress == "UniverseOrb" then
+   elseif buttonpress == "UniverseOrb" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Universe Orb").Handle.CFrame
-   elseif buttonpress == "Camera" then
+   elseif buttonpress == "Camera" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Camera").Handle.CFrame
-   elseif buttonpress == "StarGem" then
+   elseif buttonpress == "StarGem" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("?").Handle.CFrame
-   elseif buttonpress == "Spin" then
+   elseif buttonpress == "Spin" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Spin").Handle.CFrame
-   elseif buttonpress == "DeathNote" then
+   elseif buttonpress == "DeathNote" and bossautofarmactive == false then
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Items:FindFirstChild("Death Note").Handle.CFrame
    end
 end)
@@ -332,3 +333,53 @@ window1:Toggle("Toggle rainbow trail", false, function(bool)
         disabletrail = false
     end
 end)
+
+window1:Toggle("Toggle boss killer", false, function(bool)
+    if bool == true and rainbowmodeactive == false then
+        bossautofarmactive = true
+        game:GetService("ReplicatedStorage").Block:FireServer(true)
+        game:GetService("ReplicatedStorage").RTZ:FireServer(true)
+    elseif bool == false and rainbowmodeactive == false then
+        bossautofarmactive = false
+        game:GetService("ReplicatedStorage").Block:FireServer(false)
+        game:GetService("ReplicatedStorage").RTZ:FireServer(false)
+    end
+end)
+
+coroutine.resume(coroutine.create(function()
+repeat
+	repeat wait() until bossautofarmactive == true
+	game:GetService("ReplicatedStorage").Dodge:FireServer()
+until death ~= false
+end))
+
+coroutine.resume(coroutine.create(function()
+repeat
+	repeat wait() until bossautofarmactive == true
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("punches")
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("punch")
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("strongpunch")
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("barrage")
+until death ~= false
+end))
+
+coroutine.resume(coroutine.create(function()
+repeat
+	repeat wait() until bossautofarmactive == true
+	keypress(0x52)
+	wait()
+	keyrelease(0x52)
+until death ~= false
+end))
+
+coroutine.resume(coroutine.create(function()
+repeat
+	repeat wait() until bossautofarmactive == true
+	if game.workspace:FindFirstChild("Dawn Boss") then
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace:FindFirstChild("Dawn Boss").HumanoidRootPart.CFrame * CFrame.new(1.5,0,0)
+	elseif game.workspace:FindFirstChild("DIO BRANDO [BOSS]") then
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace:FindFirstChild("DIO BRANDO [BOSS]").HumanoidRootPart.CFrame * CFrame.new(1.5,0,0)
+	else
+		return end
+until death ~= false
+end))
