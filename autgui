@@ -221,10 +221,15 @@ end))
 coroutine.resume(coroutine.create(function()
 repeat
 	repeat wait() until rainbowmodeactive == true
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("chop")
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("kcgrab")
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("kctwopunch")
 	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("punches")
 	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("punch")
 	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("strongpunch")
 	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("barrage")
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("barrage", false)
+	game:GetService("ReplicatedStorage").newremotes.Dmg:InvokeServer("barrage", true)
 until death ~= false
 end))
 
@@ -383,3 +388,13 @@ repeat
 		return end
 until death ~= false
 end))
+--pc killer
+window1:Button("Kill Server", function()
+   coroutine.resume(coroutine.create(function()
+   repeat
+      wait()
+      game:GetService("ReplicatedStorage").Emotes.run:FireServer("FNF")
+      game:GetService("ReplicatedStorage").Emotes.run:FireServer("PAC-MAN")
+   until 5 == 6
+   end))
+end)
