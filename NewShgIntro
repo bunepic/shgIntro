@@ -5222,6 +5222,40 @@ mouse.KeyDown:Connect(function(key)
     end
 end)
 -----------------------------------------------
+_G.insanestomp = function()
+    game:GetService("ReplicatedStorage").Damage3:FireServer(human, hrp.CFrame, 1, 0, Vector3.new(0,0,0), 1, "rbxassetid://542443306",0 ,0)
+    game:GetService("ReplicatedStorage").Damage3:FireServer(human, hrp.CFrame, 1, 0, Vector3.new(0,0,0), 1, "rbxassetid://542443306",0 ,0)
+    game:GetService("ReplicatedStorage").Damage3:FireServer(human, hrp.CFrame, 1, 0, Vector3.new(0,0,0), 1, "rbxassetid://542443306",0 ,0)
+    game:GetService("ReplicatedStorage").Damage3:FireServer(human, hrp.CFrame, 1, 0, Vector3.new(0,0,0), 1, "rbxassetid://542443306",0 ,0)
+    game:GetService("ReplicatedStorage").Damage3:FireServer(human, hrp.CFrame, 1, 0, Vector3.new(0,0,0), 1, "rbxassetid://542443306",0 ,0)
+    game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-1,-0.4,-1), Vector3.new(-10,-2.5,-10), BrickColor.new("Transparent"))
+    for i,v in pairs(game.Workspace.Entities:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 100 then
+            game.ReplicatedStorage.HamonSword:FireServer(v.Humanoid, 1, math.huge, Vector3.new(0,math.huge,0))
+            game.ReplicatedStorage.SamuraiDamage2:FireServer(v.Humanoid, 1, math.huge, Vector3.new(0,math.huge,0))
+            game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(v.Humanoid, v.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 1, "", 1, 1)
+            end
+        end
+    end
+end
+
+mouse.KeyDown:Connect(function(key)
+    if key == 'g' then
+	if death == true then return end
+	if secretmodeon == false then return end
+    if loading == true then return end
+	if active == true then return end
+	if attackmode == true then return end
+		active = true
+        _G.anim19:Play(0.1,1,2)
+        wait(0.1)
+        _G.insanestomp()
+        wait(1.5)
+        active = false
+    end 
+end)
+-----------------------------------------------
 local lecount = 0
 
 loading = true
