@@ -114,8 +114,6 @@ local replicatedstorage = game:GetService("ReplicatedStorage")
 local RReffect = replicatedstorage.RRExplosion
 local knife = game:GetService("ReplicatedStorage").Knife
 local ripper = game:GetService("ReplicatedStorage").SpaceRipperStingyEyes
-local A_1 = 9
-local A_2 = "roadroller"
 local TS = game:GetService("ReplicatedStorage").Timestop
 local uis = game:GetService("UserInputService")
 local buff = game:GetService("ReplicatedStorage").TWGHDeath
@@ -133,11 +131,7 @@ local mih2 =
 }
 local mih3 = true
 local mih4 = game:GetService("ReplicatedStorage").MadeInHeavenHandler
-local timeaccel1 = "timeaccel"
 local mihtime1 = game:GetService("ReplicatedStorage").MadeInHeavenHandler
-local timeaccel = "minitimeaccel"
-local dodgemode = "dodgemode"
-local epicslash = "rotationslashes"
 local yell = replicatedstorage.Yell
 local donutevent = replicatedstorage.FOTPSDamageTeleport
 local dodgeevent = replicatedstorage.Dodge
@@ -152,6 +146,9 @@ local Character = player.Character or player.CharacterAdded:Wait()
 local Humanoid = Character:WaitForChild("Humanoid")
 local UIS = game:GetService("UserInputService")
 local mesplash = game:GetService("ReplicatedStorage").TwentyMeterSplash
+--
+local disabletrailfor5mode = false
+local disablertzroar = false
 --
 function loadStuff()
     wait(.75)
@@ -516,6 +513,7 @@ if standmodecooler == true then return end
 if death == true then return end
 if secretmodeon == true then return end
 if attackmode == false then
+    disabletrailfor5mode = true
     active = true
     anotherrtz = true
 	secretmodeon = true
@@ -2463,6 +2461,7 @@ local AuraSetter = 0
 local rtzauractive = false
 game.Lighting.TS.Changed:Connect(function()
     if death == true then return end
+    if disablertzroar == true then return end
     if attackmode == false then
     if game.Lighting.TS.Value == true then
         rtzauractive = true
@@ -2496,6 +2495,7 @@ end)
 
 game.Lighting.TE.Changed:Connect(function()
     if death == true then return end
+    if disablertzroar == true then return end
     if attackmode == false then
     if game.Lighting.TE.Value == true then
         rtzauractive = true
@@ -2529,6 +2529,7 @@ end)
 
 game.Lighting.TA.Changed:Connect(function()
     if death == true then return end
+    if disablertzroar == true then return end
     if attackmode == false then
     if game.Lighting.TA.Value == true then
         rtzauractive = true
@@ -2562,6 +2563,7 @@ end)
 
 game.Lighting.GI.Changed:Connect(function()
     if death == true then return end
+    if disablertzroar == true then return end
     if attackmode == false then
     if game.Lighting.GI.Value == true then
         rtzauractive = true
@@ -5221,7 +5223,7 @@ mouse.KeyDown:Connect(function(key)
         tossactive = false
     end
 end)
------------------------------------------------
+----------------------------------
 _G.insanestomp = function()
     game:GetService("ReplicatedStorage").Damage3:FireServer(human, hrp.CFrame, 1, 0, Vector3.new(0,0,0), 1, "rbxassetid://542443306",0 ,0)
     game:GetService("ReplicatedStorage").Damage3:FireServer(human, hrp.CFrame, 1, 0, Vector3.new(0,0,0), 1, "rbxassetid://542443306",0 ,0)
@@ -5256,6 +5258,140 @@ mouse.KeyDown:Connect(function(key)
     end 
 end)
 -----------------------------------------------
+local uiroaractive = false
+
+_G.UIRoar = function()
+    uiroaractive = true
+    disablertzroar = true
+    human.WalkSpeed = 0
+	human.JumpPower = 0
+    coroutine.resume(coroutine.create(function()
+    game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-10,-2.5,-10), Vector3.new(-10,-2.5,-10), BrickColor.new("Transparent"))
+    game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-12.5,-5,-12.5), Vector3.new(-12.5,-5,-12.5), BrickColor.new("Transparent"))
+    game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-15,-7.5,-15), Vector3.new(-15,-7.5,-15), BrickColor.new("Transparent"))
+    wait(0.1)
+    for _ = 1,100 do
+        wait()
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame, 0.1, 0, Vector3.new(0, 0, 0), "rbxassetid://3370684035", 100, Color3.new(255, 255, 255), "rbxassetid://367499850", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame, 0.1, 0, Vector3.new(0, 0, 0), "rbxassetid://3370684035", 75, Color3.new(255, 255, 255), "rbxassetid://367499850", 0, 0)
+        game.ReplicatedStorage.Damage:FireServer(human, hrp.CFrame, 0.1, 0, Vector3.new(0, 0, 0), "rbxassetid://3370684035", 50, Color3.new(255, 255, 255), "rbxassetid://367499850", 0, 0)
+    end
+    wait()
+    human.WalkSpeed = 12
+	human.JumpPower = 50
+    disablertzroar = false
+    uiroaractive = false
+    end))
+    for i,v in pairs(game.Workspace.Entities:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 100 then
+            game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(v.Humanoid, v.Head.CFrame * CFrame.new(0,-6000,0), 100, 0.25, v.HumanoidRootPart.CFrame.LookVector * -55 + Vector3.new(0, 55, 0), 0, "", 0, 0)
+            end
+        end
+    end
+end
+
+mouse.KeyDown:Connect(function(key)
+    if key == 'b' then
+	if death == true then return end
+	if secretmodeon == false then return end
+    if loading == true then return end
+	if active == true then return end
+	if attackmode == true then return end
+		active = true
+		human.WalkSpeed = 0
+		human.JumpPower = 0
+		rStorage.RTZ:FireServer(false)
+		_G.anim35:Play()
+		wait(0.5)
+		_G.UIRoar()
+		repeat wait() until uiroaractive == false
+		rStorage.RTZ:FireServer(true)
+		_G.anim35:Stop()
+        wait(1)
+        active = false
+    end 
+end)
+-----------------------------------------------
+_G.bombexplode = function()
+    for i,v in pairs(game.Workspace.Entities:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
+            if (bombObj.Position - v.HumanoidRootPart.Position).Magnitude < 100 then
+            game:GetService("ReplicatedStorage").Knock:FireServer(v.Humanoid)
+            game:GetService("ReplicatedStorage").Berserk:FireServer(v.Humanoid)
+            game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(v.Humanoid, v.Head.CFrame * CFrame.new(0,-6000,0), 125, 0.25, v.HumanoidRootPart.CFrame.LookVector * -100 + Vector3.new(0, 105, 0), 0, "", 0, 0)
+            end
+        end
+    end
+end
+
+local Objs = {}
+local LastBottomObj
+local Model = Instance.new("Model")
+Model.Name = "Obj"
+Model.Parent = chr
+local findmodel = chr:FindFirstChild("Model")
+local bombdisabled = false
+local bombcd = false
+
+_G.bombdrop = function() 
+
+    local bombObj = Instance.new("Part")
+    bombObj.Anchored = true
+    bombObj.CanCollide = false
+    bombObj.Massless = true
+    bombObj.Transparency = 1
+    bombObj.Size = Vector3.new(10,10,10)
+    bombObj.Parent = Model
+    bombObj.CFrame = hrp.CFrame
+
+    coroutine.resume(coroutine.create(function()
+    wait(5)
+    bombdisabled = true
+    bombObj:Destroy()
+    repeat wait() until bombcd == false
+    bombdisabled = false
+    end))
+    
+    coroutine.resume(coroutine.create(function()
+    repeat
+        game.ReplicatedStorage.Damage12Enderman:FireServer(human, bombObj.CFrame, 0, 0, Vector3.new(0, 0, 0), 0.125, "rbxassetid://541909867", 0, 0)
+        wait()
+    until death == true or bombdisabled == true
+    end))
+    
+    local debounce = false
+    
+    local hitRegister = bombObj.Touched:Connect(function(hit)
+        if hit.Parent:FindFirstChild("Humanoid") and hit.Parent ~= chr then
+                if debounce == false then
+                debounce = true
+                delay(.01, function() debounce = false end)
+            _G.bombexplode()
+            end
+        elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent ~= chr then
+                if debounce == false then
+                debounce = true
+                delay(.01, function() debounce = false end)
+            _G.bombexplode()
+            end
+        end
+    end)
+end
+
+mouse.KeyDown:Connect(function(key)
+    if key == '4' then
+	if attackmode == false then return end
+	if specmodecooler == true then return end
+	if death == true then return end
+	if bombcd == true then return end
+        bombcd = true
+        _G.bombdrop()
+        wait(5)
+        bombcd = false
+    end 
+end)
+-----------------------------------------------
 game.ReplicatedStorage.SamuraiDamage2:FireServer(human,-math.huge)
 human.WalkSpeed = 26
 human.JumpPower = 50
@@ -5268,7 +5404,7 @@ local auractivehead = false
 
 coroutine.resume(coroutine.create(function()
 repeat
-	repeat wait() until auractivehead == false
+	repeat wait() until auractivehead == false and disabletrailfor5mode == false
 	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,2,0), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
 	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,2,0.5), 0, 0, nil, 0, "", 1, 1)
@@ -5315,7 +5451,7 @@ end))
 
 coroutine.resume(coroutine.create(function()
 repeat
-	repeat wait() until auractiveleg == false
+	repeat wait() until auractiveleg == false and disabletrailfor5mode == false
 	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
 	game:GetService("ReplicatedStorage").Damage11Enderman:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,-3,0.5), 0, 0, nil, 0, "", 1, 1)
