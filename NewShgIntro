@@ -5264,7 +5264,7 @@ _G.UIRoar = function()
     for i,v in pairs(game.Workspace.Entities:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
             if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 100 then
-            game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(v.Humanoid, v.Head.CFrame * CFrame.new(0,-6000,0), 100, 0.25, v.HumanoidRootPart.CFrame.LookVector * -55 + Vector3.new(0, 55, 0), 0, "", 0, 0)
+            game:GetService("ReplicatedStorage").Damage12:FireServer(v.Humanoid, v.Head.CFrame * CFrame.new(0,-60,0), 10, 0.25, v.HumanoidRootPart.CFrame.LookVector * -125 + Vector3.new(0, 105, 0), 0, "", 0, 0)
             end
         end
     end
@@ -5317,7 +5317,7 @@ _G.bombexplode = function()
             if (bombObj.Position - v.HumanoidRootPart.Position).Magnitude < 100 then
             game:GetService("ReplicatedStorage").Knock:FireServer(v.Humanoid)
             game:GetService("ReplicatedStorage").Berserk:FireServer(v.Humanoid)
-            game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(v.Humanoid, v.Head.CFrame * CFrame.new(0,-6000,0), 125, 0.25, v.HumanoidRootPart.CFrame.LookVector * -100 + Vector3.new(0, 105, 0), 0, "", 0, 0)
+            game:GetService("ReplicatedStorage").Damage12:FireServer(v.Humanoid, v.Head.CFrame * CFrame.new(0,-60,0), 75, 0.25, v.HumanoidRootPart.CFrame.LookVector * -125 + Vector3.new(0, 105, 0), 0, "", 0, 0)
             end
         end
     end
