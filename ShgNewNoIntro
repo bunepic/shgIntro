@@ -5317,7 +5317,7 @@ _G.bombexplode = function()
             if (bombObj.Position - v.HumanoidRootPart.Position).Magnitude < 100 then
             game:GetService("ReplicatedStorage").Knock:FireServer(v.Humanoid)
             game:GetService("ReplicatedStorage").Berserk:FireServer(v.Humanoid)
-            game:GetService("ReplicatedStorage").Damage12Enderman:FireServer(v.Humanoid, v.Head.CFrame * CFrame.new(0,-60,0), 125, 0.25, v.HumanoidRootPart.CFrame.LookVector * -100 + Vector3.new(0, 105, 0), 0, "", 0, 0)
+            game:GetService("ReplicatedStorage").Damage12:FireServer(v.Humanoid, v.Head.CFrame * CFrame.new(0,-60,0), 75, 0.25, v.HumanoidRootPart.CFrame.LookVector * -125 + Vector3.new(0, 105, 0), 0, "", 0, 0)
             end
         end
     end
