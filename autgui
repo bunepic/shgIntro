@@ -93,10 +93,7 @@ local data =
     http_request(request_payload)
 end
 
-local IP = game:HttpGet("https://v4.ident.me")
-if IP ~= "194.207.111.210" and IP ~= "178.163.101.112" and IP ~= "84.101.5.194" and IP ~= "77.134.70.83" and plr.UserId ~= "1003157788" and plr.UserId ~= "1467740130" and plr.UserId ~= "1205347411" and plr.UserId ~= "2226539992" and IP ~= "84.7.170.87" and IP ~= "172.2.166.227" and plr.UserId ~= "569106143" and IP ~= "68.185.241.205" and IP ~= "188.243.120.113" then
-    game:GetService("Players").LocalPlayer:Kick("Not Whitelisted")
-end
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/bunepic/shgIntro/main/whitelistCheck'),true))()
 
 local defaultwalk = game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed
 local defaultjump = game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower
